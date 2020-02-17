@@ -4,11 +4,16 @@
   "private": true,
   "scripts": {
     "serve": "vue-cli-service serve",
-    "build": "vue-cli-service build"
+    "build": "vue-cli-service build",
+    "release": "npm run build && node ./scripts/releaseExample",
+    "release2": "node ./scripts/releaseExample"
   },
   "dependencies": {
     "@5a/css": "^0.0.4",
+    "chalk": "^3.0.0",
     "core-js": "^3.6.4",
+    "gh-pages": "^2.2.0",
+    "shelljs": "^0.8.3",
     "vue": "^2.6.11",
     "vue-clipboard2": "^0.3.1",
     "vue-router": "^3.1.5"
