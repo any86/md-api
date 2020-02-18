@@ -76,7 +76,7 @@ export default {
                 this.table.map(
                     row =>
                         `\r\n|${row.key}|\`${row.type}\`|${row.desc}|${row.example}|`
-                )
+                ).join(',')
             );
         }
     },
