@@ -1,0 +1,4750 @@
+{
+	"info": {
+		"_postman_id": "8b9daa54-b4d9-4772-b975-00a4c1e78fda",
+		"name": "监控平台",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+	},
+	"item": [
+		{
+			"name": "系统管理",
+			"item": [
+				{
+					"name": "校区",
+					"item": [
+						{
+							"name": "编辑按钮",
+							"request": {
+								"method": "GET",
+								"header": [
+									{
+										"key": "token",
+										"type": "text",
+										"value": "{{token}}"
+									}
+								],
+								"url": {
+									"raw": "{{host}}/termType/findById?type_id=0bfc511116e7495bb393f902fdea01",
+									"host": [
+										"{{host}}"
+									],
+									"path": [
+										"termType",
+										"findById"
+									],
+									"query": [
+										{
+											"key": "type_id",
+											"value": "0bfc511116e7495bb393f902fdea01"
+										}
+									]
+								},
+								"description": "## 参数\r\n|键值|类型|说明|例子|\r\n|---|---|---|---|\r\n|campus_id|string|校区id|0bfc511116e7495bb393f902fdea01|\r\n\r\n## 返回\r\n|键值|类型|说明|例子|\r\n|---|---|---|---|\r\n|code|string|0:失败,1:成功|0|\r\n|msg|string|提示文字|成功\r\n|data|object|数据||{campus_id:'0bfc511116e7495bb393f902fdea01',campus_name:'新中新',graphy_x:'123456',graphy_y:'123456'}|\r\n|data[0]|campus_id|string|id|\r\n|data[0]|campus_name|string|名称|\r\n|data[0]|graphy_x|string|经度|\r\n|data[0]|graphy_y|string|纬度|"
+							},
+							"response": []
+						},
+						{
+							"name": "编辑",
+							"request": {
+								"method": "POST",
+								"header": [
+									{
+										"key": "Content-Type",
+										"type": "text",
+										"value": "application/json"
+									},
+									{
+										"key": "token",
+										"type": "text",
+										"value": "{{token}}"
+									}
+								],
+								"body": {
+									"mode": "raw",
+									"raw": "{\"campus_id\":\"0bfc511116e7495bb393f902fdea01b1\",\"campus_name\":\"新中新1\",\"graphy_x\":\"12345678\",\"graphy_y\":\"12345678\"}\n",
+									"options": {
+										"raw": {}
+									}
+								},
+								"url": {
+									"raw": "{{host}}/campus/edit",
+									"host": [
+										"{{host}}"
+									],
+									"path": [
+										"campus",
+										"edit"
+									]
+								},
+								"description": "## 参数\r\n|键值|类型|说明|例子|\r\n|---|---|---|---|\r\n|campus_id|string|校区id|0bfc511116e7495bb393f902fdea01|\r\n|campus_name|string|校区名称|test|\r\n|graphy_x|string|经度|123789|\r\n|graphy_y|string|纬度|123789|\r\n\r\n## 返回\r\n|键值|类型|说明|例子|\r\n|---|---|---|---|\r\n|code|string|0:失败,1:成功|0|\r\n|msg|string|提示文字|成功"
+							},
+							"response": []
+						},
+						{
+							"name": "删除",
+							"request": {
+								"method": "POST",
+								"header": [
+									{
+										"key": "Content-Type",
+										"type": "text",
+										"value": "application/json"
+									},
+									{
+										"key": "token",
+										"type": "text",
+										"value": "{{token}}"
+									}
+								],
+								"body": {
+									"mode": "raw",
+									"raw": "{\"campus_id\":\"0bfc511116e7495bb393f902fdea01b1\"}",
+									"options": {
+										"raw": {}
+									}
+								},
+								"url": {
+									"raw": "{{host}}/campus/delete",
+									"host": [
+										"{{host}}"
+									],
+									"path": [
+										"campus",
+										"delete"
+									]
+								},
+								"description": "## 参数\r\n|键值|类型|说明|例子|\r\n|---|---|---|---|\r\n|campus_id|string|校区id|0bfc511116e7495bb393f902fdea01|\r\n\r\n## 返回\r\n|键值|类型|说明|例子|\r\n|---|---|---|---|\r\n|code|string|0:失败,1:成功|0|\r\n|msg|string|提示文字|成功"
+							},
+							"response": []
+						},
+						{
+							"name": "下拉框",
+							"protocolProfileBehavior": {
+								"disableBodyPruning": true
+							},
+							"request": {
+								"method": "GET",
+								"header": [
+									{
+										"key": "token",
+										"type": "text",
+										"value": "{{token}}"
+									}
+								],
+								"body": {
+									"mode": "raw",
+									"raw": "",
+									"options": {
+										"raw": {}
+									}
+								},
+								"url": {
+									"raw": "{{host}}/campus/getListIdAndName",
+									"host": [
+										"{{host}}"
+									],
+									"path": [
+										"campus",
+										"getListIdAndName"
+									]
+								},
+								"description": "## 参数\r\n|键值|类型|说明|例子|\r\n|---|---|---|---|\r\n\r\n## 返回\r\n|键值|类型|说明|例子|\r\n|---|---|---|---|\r\n|code|string|0:失败,1:成功|0|\r\n|msg|string|提示文字|成功\r\n|data|array|数据|[{campus_id:'0bfc511116e7495bb393f902fdea01',campus_name:'新中新'}]|\r\n|data[0]|campus_id|string|id|\r\n|data[0]|campus_name|string|名称|\r\n"
+							},
+							"response": []
+						},
+						{
+							"name": "列表",
+							"request": {
+								"method": "GET",
+								"header": [
+									{
+										"key": "token",
+										"type": "text",
+										"value": "{{token}}"
+									}
+								],
+								"url": {
+									"raw": "{{host}}/campus/list?page=1&pageSize=10",
+									"host": [
+										"{{host}}"
+									],
+									"path": [
+										"campus",
+										"list"
+									],
+									"query": [
+										{
+											"key": "page",
+											"value": "1"
+										},
+										{
+											"key": "pageSize",
+											"value": "10"
+										}
+									]
+								},
+								"description": "## 参数\r\n|键值|类型|说明|例子|\r\n|---|---|---|---|\r\n|page|string|页码|1|\r\n|pageSize|string|每页显示条数|10|\r\n\r\n## 返回\r\n|键值|类型|说明|例子|\r\n|---|---|---|---|\r\n|code|string|0:失败,1:成功|0|\r\n|msg|string|提示文字|成功\r\n|data|array|数据|[{campus_id:'0bfc511116e7495bb393f902fdea01',campus_name:'新中新',graphy_x:'123456',graphy_y:'123456'}]|\r\n|data[0]|campus_id|string|id|\r\n|data[0]|campus_name|string|名称|\r\n|data[0]|graphy_x|string|经度|\r\n|data[0]|graphy_y|string|纬度|\r\n"
+							},
+							"response": []
+						},
+						{
+							"name": "添加",
+							"request": {
+								"method": "POST",
+								"header": [
+									{
+										"key": "Content-Type",
+										"value": "application/json",
+										"type": "text"
+									},
+									{
+										"key": "token",
+										"value": "{{token}}",
+										"type": "text"
+									}
+								],
+								"body": {
+									"mode": "raw",
+									"raw": "{\"campus_name\":\"新中新\",\"graphy_x\":\"123456\",\"graphy_y\":\"123456\"}",
+									"options": {
+										"raw": {}
+									}
+								},
+								"url": {
+									"raw": "{{host}}/campus/add",
+									"host": [
+										"{{host}}"
+									],
+									"path": [
+										"campus",
+										"add"
+									]
+								},
+								"description": "## 参数\r\n|键值|类型|说明|例子|\r\n|---|---|---|---|\r\n|campus_name|string|校区名称|test|\r\n|graphy_x|string|经度|123789|\r\n|graphy_y|string|纬度|123789|\r\n\r\n## 返回\r\n|键值|类型|说明|例子|\r\n|---|---|---|---|\r\n|code|string|0:失败,1:成功|0|\r\n|msg|string|提示文字|成功"
+							},
+							"response": []
+						}
+					],
+					"protocolProfileBehavior": {},
+					"_postman_isSubFolder": true
+				},
+				{
+					"name": "地理位置",
+					"item": [
+						{
+							"name": "列表",
+							"request": {
+								"method": "GET",
+								"header": [
+									{
+										"key": "token",
+										"value": "{{token}}",
+										"type": "text"
+									}
+								],
+								"url": {
+									"raw": "{{host}}/area/list?page=1&pageSize=10",
+									"host": [
+										"{{host}}"
+									],
+									"path": [
+										"area",
+										"list"
+									],
+									"query": [
+										{
+											"key": "page",
+											"value": "1"
+										},
+										{
+											"key": "pageSize",
+											"value": "10"
+										}
+									]
+								},
+								"description": "## 参数\r\n|键值|类型|说明|例子|\r\n|---|---|---|---|\r\n|page|string|页码|1|\r\n|pageSize|string|每页显示条数|10|\r\n\r\n## 返回\r\n|键值|类型|说明|例子|\r\n|---|---|---|---|\r\n|code|string|0:失败,1:成功|0|\r\n|msg|string|提示文字|成功\r\n|dataCount|string|数据总数|10\r\n|data|array|数据|[{area_id:'f94eb3a7e92a41dd9af1a8ae0b6ad376',area_name:'新中新1',campus_id:'0bfc511116e7495bb393f902fdea01',campus_name:'新中新',graphy_x:'12345678',graphy_y:'123455678'}]|\r\n|data[0]|area_id|string|id|\r\n|data[0]|area_name|string|名称|\r\n|data[0]|campus_id||string校区id|\r\n|data[0]|campus_name|string|校区名称|\r\n|data[0]|graphy_x|string|经度|\r\n|data[0]|graphy_y|string|纬度|"
+							},
+							"response": []
+						},
+						{
+							"name": "编辑按钮",
+							"request": {
+								"method": "GET",
+								"header": [
+									{
+										"key": "token",
+										"value": "{{token}}",
+										"type": "text"
+									}
+								],
+								"url": {
+									"raw": "{{host}}/area/findById?area_id=0bfc511116e7495bb393f902fdea01b1",
+									"host": [
+										"{{host}}"
+									],
+									"path": [
+										"area",
+										"findById"
+									],
+									"query": [
+										{
+											"key": "area_id",
+											"value": "0bfc511116e7495bb393f902fdea01b1"
+										}
+									]
+								},
+								"description": "## 参数\r\n|键值|类型|说明|例子|\r\n|---|---|---|---|\r\n|area_id|string|地理位置id|0bfc511116e7495bb393f902fdea01|\r\n\r\n## 返回\r\n|键值|类型|说明|例子|\r\n|---|---|---|---|\r\n|code|string|0:失败,1:成功|0|\r\n|msg|string|提示文字|成功\r\n|data|object|数据|{area_id:'f94eb3a7e92a41dd9af1a8ae0b6ad376',area_name:'新中新1',campus_id:'0bfc511116e7495bb393f902fdea01',campus_name:'新中新',graphy_x:'12345678',graphy_y:'123455678'}|\r\n|data[0]|area_id|string|id|\r\n|data[0]|area_name|string|名称|\r\n|data[0]|campus_id|string|校区id|\r\n|data[0]|campus_name|string|校区名称|\r\n|data[0]|graphy_x|string|经度|\r\n|data[0]|graphy_y|string|纬度|"
+							},
+							"response": []
+						},
+						{
+							"name": "添加",
+							"request": {
+								"method": "POST",
+								"header": [
+									{
+										"key": "Content-Type",
+										"value": "application/json",
+										"type": "text"
+									},
+									{
+										"key": "token",
+										"value": "{{token}}",
+										"type": "text"
+									}
+								],
+								"body": {
+									"mode": "raw",
+									"raw": "{\"area_name\":\"新中新\",\"graphy_x\":\"123456\",\"graphy_y\":\"123456\",\"campus_id\":\"0bfc511116e7495bb393f902fdea01\"}",
+									"options": {
+										"raw": {}
+									}
+								},
+								"url": {
+									"raw": "{{host}}/area/add",
+									"host": [
+										"{{host}}"
+									],
+									"path": [
+										"area",
+										"add"
+									]
+								},
+								"description": "## 参数\r\n|键值|类型|说明|例子|\r\n|---|---|---|---|\r\n|area_name|string|名称|test|\r\n|campus_id|string|经度|0bfc511116e7495bb393f902fdea01|\r\n|graphy_x|string|纬度|test\r\n|graphy_y|string|纬度|0451-12345678|\r\n\r\n## 返回\r\n|键值|类型|说明|例子|\r\n|---|---|---|---|\r\n|code|string|0:失败,1:成功|0|\r\n|msg|string|提示文字|成功"
+							},
+							"response": []
+						},
+						{
+							"name": "编辑",
+							"request": {
+								"method": "POST",
+								"header": [
+									{
+										"key": "Content-Type",
+										"value": "application/json",
+										"type": "text"
+									},
+									{
+										"key": "token",
+										"value": "{{token}}",
+										"type": "text"
+									}
+								],
+								"body": {
+									"mode": "raw",
+									"raw": "{\"area_id\":\"f94eb3a7e92a41dd9af1a8ae0b6ad376\",\"area_name\":\"新中新1\",\"graphy_x\":\"12345678\",\"graphy_y\":\"12345678\",\"campus_id\":\"0bfc511116e7495bb393f902fdea01\"}",
+									"options": {
+										"raw": {}
+									}
+								},
+								"url": {
+									"raw": "{{host}}/area/edit",
+									"host": [
+										"{{host}}"
+									],
+									"path": [
+										"area",
+										"edit"
+									]
+								},
+								"description": "## 参数\r\n|键值|类型|说明|例子|\r\n|---|---|---|---|\r\n|area_id|string|id|f94eb3a7e92a41dd9af1a8ae0b6ad376|\r\n|area_name|string|名称|test|\r\n|campus_id|string|经度|0bfc511116e7495bb393f902fdea01|\r\n|graphy_x|string|纬度|test\r\n|graphy_y|string|纬度|0451-12345678|\r\n\r\n## 返回\r\n|键值|类型|说明|例子|\r\n|---|---|---|---|\r\n|code|string|0:失败,1:成功|0|\r\n|msg|string|提示文字|成功"
+							},
+							"response": []
+						},
+						{
+							"name": "删除",
+							"request": {
+								"method": "POST",
+								"header": [
+									{
+										"key": "Content-Type",
+										"type": "text",
+										"value": "application/json"
+									},
+									{
+										"key": "token",
+										"type": "text",
+										"value": "{{token}}"
+									}
+								],
+								"body": {
+									"mode": "raw",
+									"raw": "{\"area_id\":\"f94eb3a7e92a41dd9af1a8ae0b6ad374\"}",
+									"options": {
+										"raw": {}
+									}
+								},
+								"url": {
+									"raw": "{{host}}/area/delete",
+									"host": [
+										"{{host}}"
+									],
+									"path": [
+										"area",
+										"delete"
+									]
+								},
+								"description": "## 参数\r\n|键值|类型|说明|例子|\r\n|---|---|---|---|\r\n|area_id|string|id|f94eb3a7e92a41dd9af1a8ae0b6ad376|\r\n\r\n## 返回\r\n|键值|类型|说明|例子|\r\n|---|---|---|---|\r\n|code|string|0:失败,1:成功|0|\r\n|msg|string|提示文字|成功"
+							},
+							"response": []
+						},
+						{
+							"name": "下拉框",
+							"request": {
+								"method": "GET",
+								"header": [
+									{
+										"key": "token",
+										"type": "text",
+										"value": "{{token}}"
+									}
+								],
+								"url": {
+									"raw": "{{host}}/user/getListIdAndName",
+									"host": [
+										"{{host}}"
+									],
+									"path": [
+										"user",
+										"getListIdAndName"
+									]
+								},
+								"description": "## 参数\r\n|键值|类型|说明|例子|\r\n|---|---|---|---|\r\n\r\n## 返回\r\n|键值|类型|说明|例子|\r\n|---|---|---|---|\r\n|code|string|0:失败,1:成功|0|\r\n|msg|string|提示文字|成功\r\n|data|array|数据|[{area_id:'123456789',area_name:'新中新'}]|\r\n|data[0]|area_id|string|id|\r\n|data[0]|area_name|string|名称|"
+							},
+							"response": []
+						}
+					],
+					"protocolProfileBehavior": {},
+					"_postman_isSubFolder": true
+				},
+				{
+					"name": "经营单位",
+					"item": [
+						{
+							"name": "列表",
+							"request": {
+								"method": "GET",
+								"header": [
+									{
+										"key": "token",
+										"value": "{{token}}",
+										"type": "text"
+									}
+								],
+								"url": {
+									"raw": "{{host}}/unit/list?page=1&pageSize=10",
+									"host": [
+										"{{host}}"
+									],
+									"path": [
+										"unit",
+										"list"
+									],
+									"query": [
+										{
+											"key": "page",
+											"value": "1"
+										},
+										{
+											"key": "pageSize",
+											"value": "10"
+										}
+									]
+								},
+								"description": "## 参数\r\n|键值|类型|说明|例子|\r\n|---|---|---|---|\r\n|page|string|页码|1|\r\n|pageSize|string|每页显示条数|10|\r\n\r\n## 返回\r\n|键值|类型|说明|例子|\r\n|---|---|---|---|\r\n|code|string|0:失败,1:成功|0|\r\n|msg|string|提示文字|成功\r\n|dataCount|string|数据总数|10\r\n|data|array|数据|[{unit_id:'4d11d5fd98e6492890df56d4f76306fc',unit_name:'新中新1',campus_id:'0bfc511116e7495bb393f902fdea01',campus_name:'新中新',unit_contact:'负责人',unit_phone:'0451-12345678',unit_mobile:'12345678901'}]|\r\n|data[0]|unit_id|string|id|\r\n|data[0]|unit_name|string|名称|\r\n|data[0]|campus_id|string|校区id|\r\n|data[0]|campus_name|string|校区名称|\r\n|data[0]|unit_contact|string|负责人|\r\n|data[0]|unit_phone|string|电话|\r\n|data[0]|unit_mobile|string|手机号|"
+							},
+							"response": []
+						},
+						{
+							"name": "编辑按钮",
+							"request": {
+								"method": "GET",
+								"header": [
+									{
+										"key": "token",
+										"value": "{{token}}",
+										"type": "text"
+									}
+								],
+								"url": {
+									"raw": "{{host}}/unit/findById?unit_id=0bfc511116e7495bb393f902fdea01b1",
+									"host": [
+										"{{host}}"
+									],
+									"path": [
+										"unit",
+										"findById"
+									],
+									"query": [
+										{
+											"key": "unit_id",
+											"value": "0bfc511116e7495bb393f902fdea01b1"
+										}
+									]
+								},
+								"description": "## 参数\r\n|键值|类型|说明|例子|\r\n|---|---|---|---|\r\n|campus_id|string|校区id|0bfc511116e7495bb393f902fdea01|\r\n\r\n## 返回\r\n|键值|类型|说明|例子|\r\n|---|---|---|---|\r\n|code|string|0:失败,1:成功|0|\r\n|msg|string|提示文字|成功\r\n|data|object|数据|{unit_id:'4d11d5fd98e6492890df56d4f76306fc',unit_name:'新中新1',campus_id:'0bfc511116e7495bb393f902fdea01',campus_name:'新中新',unit_contact:'负责人',unit_phone:'0451-12345678',unit_mobile:'12345678901'}|\r\n|data[0]|unit_id|string|id|\r\n|data[0]|unit_name|string|名称|\r\n|data[0]|campus_id|string|校区id|\r\n|data[0]|campus_name|string|校区名称|\r\n|data[0]|unit_contact|string|负责人|\r\n|data[0]|unit_phone|string|电话|\r\n|data[0]|unit_mobile|string|手机号|\r\n"
+							},
+							"response": []
+						},
+						{
+							"name": "添加",
+							"request": {
+								"method": "POST",
+								"header": [
+									{
+										"key": "Content-Type",
+										"value": "application/json",
+										"type": "text"
+									},
+									{
+										"key": "token",
+										"value": "{{token}}",
+										"type": "text"
+									}
+								],
+								"body": {
+									"mode": "raw",
+									"raw": "{\"unit_name\":\"新中新\",\"unit_contact\":\"test\",\"unit_phone\":\"0451-12345678\",\"unit_mobile\":\"12345678965\",\"campus_id\":\"0bfc511116e7495bb393f902fdea01\"}",
+									"options": {
+										"raw": {}
+									}
+								},
+								"url": {
+									"raw": "{{host}}/unit/add",
+									"host": [
+										"{{host}}"
+									],
+									"path": [
+										"unit",
+										"add"
+									]
+								},
+								"description": "## 参数\r\n|键值|类型|说明|例子|\r\n|---|---|---|---|\r\n|unit_name|string|单位名称|test|\r\n|campus_id|string|校区|0bfc511116e7495bb393f902fdea01|\r\n|unit_contact|string|负责人|test\r\n|unit_phone|string|电话|0451-12345678|\r\n|unit_mobile|string|手机|12345678901|\r\n\r\n## 返回\r\n|键值|类型|说明|例子|\r\n|---|---|---|---|\r\n|code|string|0:失败,1:成功|0|\r\n|msg|string|提示文字|成功"
+							},
+							"response": []
+						},
+						{
+							"name": "编辑",
+							"request": {
+								"method": "POST",
+								"header": [
+									{
+										"key": "Content-Type",
+										"value": "application/json",
+										"type": "text"
+									},
+									{
+										"key": "token",
+										"value": "{{token}}",
+										"type": "text"
+									}
+								],
+								"body": {
+									"mode": "raw",
+									"raw": "{\"unit_id\":\"4d11d5fd98e6492890df56d4f76306fc\",\"unit_name\":\"新中新1\",\"unit_contact\":\"test\",\"unit_phone\":\"0451-12345678\",\"unit_mobile\":\"12345678965\",\"campus_id\":\"0bfc511116e7495bb393f902fdea01\"}",
+									"options": {
+										"raw": {}
+									}
+								},
+								"url": {
+									"raw": "{{host}}/unit/edit",
+									"host": [
+										"{{host}}"
+									],
+									"path": [
+										"unit",
+										"edit"
+									]
+								},
+								"description": "## 参数\r\n|键值|类型|说明|例子|\r\n|---|---|---|---|\r\n|unit_id|string|单位id|4d11d5fd98e6492890df56d4f76306fc|\r\n|unit_name|string|单位名称|test|\r\n|campus_id|string|校区|0bfc511116e7495bb393f902fdea01|\r\n|unit_contact|string|负责人|test\r\n|unit_phone|string|电话|0451-12345678|\r\n|unit_mobile|string|手机|12345678901|\r\n\r\n## 返回\r\n|键值|类型|说明|例子|\r\n|---|---|---|---|\r\n|code|string|0:失败,1:成功|0|\r\n|msg|string|提示文字|成功"
+							},
+							"response": []
+						},
+						{
+							"name": "删除",
+							"request": {
+								"method": "POST",
+								"header": [
+									{
+										"key": "Content-Type",
+										"type": "text",
+										"value": "application/json"
+									},
+									{
+										"key": "token",
+										"type": "text",
+										"value": "{{token}}"
+									}
+								],
+								"body": {
+									"mode": "raw",
+									"raw": "{\"unit_id\":\"4d11d5fd98e6492890df56d4f7630\"}",
+									"options": {
+										"raw": {}
+									}
+								},
+								"url": {
+									"raw": "{{host}}/unit/delete",
+									"host": [
+										"{{host}}"
+									],
+									"path": [
+										"unit",
+										"delete"
+									]
+								},
+								"description": "## 参数\r\n|键值|类型|说明|例子|\r\n|---|---|---|---|\r\n|unit_id|string|单位id|0bfc511116e7495bb393f902fdea01|\r\n\r\n## 返回\r\n|键值|类型|说明|例子|\r\n|---|---|---|---|\r\n|code|string|0:失败,1:成功|0|\r\n|msg|string|提示文字|成功"
+							},
+							"response": []
+						},
+						{
+							"name": "下拉框",
+							"request": {
+								"method": "GET",
+								"header": [
+									{
+										"key": "token",
+										"type": "text",
+										"value": "{{token}}"
+									}
+								],
+								"url": {
+									"raw": "{{host}}/unit/getListIdAndName",
+									"host": [
+										"{{host}}"
+									],
+									"path": [
+										"unit",
+										"getListIdAndName"
+									]
+								},
+								"description": "## 参数\r\n|键值|类型|说明|例子|\r\n|---|---|---|---|\r\n\r\n## 返回\r\n|键值|类型|说明|例子|\r\n|---|---|---|---|\r\n|code|string|0:失败,1:成功|0|\r\n|msg|string|提示文字|成功\r\n|data|array|数据|[{unit_id:'123456',unit_name:'单位名称'}]|\r\n|data[0]|unit_id|string|id|\r\n|data[0]|unit_name|string|名称|"
+							},
+							"response": []
+						}
+					],
+					"protocolProfileBehavior": {},
+					"_postman_isSubFolder": true
+				},
+				{
+					"name": "用户",
+					"item": [
+						{
+							"name": "列表",
+							"request": {
+								"method": "GET",
+								"header": [
+									{
+										"key": "token",
+										"value": "{{token}}",
+										"type": "text"
+									}
+								],
+								"url": {
+									"raw": "{{host}}/user/list?page=1&pageSize=10",
+									"host": [
+										"{{host}}"
+									],
+									"path": [
+										"user",
+										"list"
+									],
+									"query": [
+										{
+											"key": "page",
+											"value": "1"
+										},
+										{
+											"key": "pageSize",
+											"value": "10"
+										}
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "编辑按钮",
+							"request": {
+								"method": "GET",
+								"header": [
+									{
+										"key": "token",
+										"value": "{{token}}",
+										"type": "text"
+									}
+								],
+								"url": {
+									"raw": "{{host}}/user/findById?user_id=aseds34dhgjskhs45d6e21wsfde1",
+									"host": [
+										"{{host}}"
+									],
+									"path": [
+										"user",
+										"findById"
+									],
+									"query": [
+										{
+											"key": "user_id",
+											"value": "aseds34dhgjskhs45d6e21wsfde1"
+										}
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "添加",
+							"request": {
+								"method": "POST",
+								"header": [
+									{
+										"key": "Content-Type",
+										"value": "application/json",
+										"type": "text"
+									},
+									{
+										"key": "token",
+										"value": "{{token}}",
+										"type": "text"
+									}
+								],
+								"body": {
+									"mode": "raw",
+									"raw": "{\n\"user_name\":\"测试4\",\n\"status\":\"1\",\n\"login_name\":\"test4\",\n\"mobile\":\"12345678901\",\n\"email\":\"455@126.com\",\n\"we_chat\":\"test123\",\n\"role_id\":\"1001\",\n\"unit_id\":\"\",\n\"campus_id\":\"\"\n}",
+									"options": {
+										"raw": {}
+									}
+								},
+								"url": {
+									"raw": "{{host}}/user/add",
+									"host": [
+										"{{host}}"
+									],
+									"path": [
+										"user",
+										"add"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "编辑",
+							"request": {
+								"method": "POST",
+								"header": [
+									{
+										"key": "Content-Type",
+										"value": "application/json",
+										"type": "text"
+									},
+									{
+										"key": "token",
+										"value": "{{token}}",
+										"type": "text"
+									}
+								],
+								"body": {
+									"mode": "raw",
+									"raw": "{\n\"user_id\":\"5af0f0f8245e47d3afdc2bd5696fa0c9\",\n\"user_name\":\"测试1\",\n\"status\":\"1\",\n\"login_name\":\"test\",\n\"mobile\":\"12345678901\",\n\"email\":\"455@126.com\",\n\"we_chat\":\"test123\",\n\"role_id\":\"1001\",\n\"unit_id\":\"\",\n\"campus_id\":\"\"\n}",
+									"options": {
+										"raw": {}
+									}
+								},
+								"url": {
+									"raw": "{{host}}/user/edit",
+									"host": [
+										"{{host}}"
+									],
+									"path": [
+										"user",
+										"edit"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "删除",
+							"request": {
+								"method": "POST",
+								"header": [
+									{
+										"key": "Content-Type",
+										"type": "text",
+										"value": "application/json"
+									},
+									{
+										"key": "token",
+										"type": "text",
+										"value": "{{token}}"
+									}
+								],
+								"body": {
+									"mode": "raw",
+									"raw": "{\"user_id\":\"5af0f0f8245e47d3afdc2bd5696fa\"}",
+									"options": {
+										"raw": {}
+									}
+								},
+								"url": {
+									"raw": "{{host}}/user/delete",
+									"host": [
+										"{{host}}"
+									],
+									"path": [
+										"user",
+										"delete"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "修改密码",
+							"request": {
+								"method": "POST",
+								"header": [
+									{
+										"key": "Content-Type",
+										"type": "text",
+										"value": "application/json"
+									},
+									{
+										"key": "token",
+										"type": "text",
+										"value": "{{token}}"
+									}
+								],
+								"body": {
+									"mode": "raw",
+									"raw": "{\n\"password\":\"123456\",\n\"newPassword\":\"45678\"\n}",
+									"options": {
+										"raw": {}
+									}
+								},
+								"url": {
+									"raw": "{{host}}/user/editPassword",
+									"host": [
+										"{{host}}"
+									],
+									"path": [
+										"user",
+										"editPassword"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "重置密码",
+							"request": {
+								"method": "POST",
+								"header": [
+									{
+										"key": "Content-Type",
+										"type": "text",
+										"value": "application/json"
+									},
+									{
+										"key": "token",
+										"type": "text",
+										"value": "{{token}}"
+									}
+								],
+								"body": {
+									"mode": "raw",
+									"raw": "{\n\"user_id\":\"5af0f0f8245e47d3afdc2bd5696fa0c9\"\n}",
+									"options": {
+										"raw": {}
+									}
+								},
+								"url": {
+									"raw": "{{host}}/user/resetPassword",
+									"host": [
+										"{{host}}"
+									],
+									"path": [
+										"user",
+										"resetPassword"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "用户下拉框",
+							"request": {
+								"method": "GET",
+								"header": [
+									{
+										"key": "token",
+										"type": "text",
+										"value": "{{token}}"
+									}
+								],
+								"url": {
+									"raw": "{{host}}/user/getListIdAndName",
+									"host": [
+										"{{host}}"
+									],
+									"path": [
+										"user",
+										"getListIdAndName"
+									]
+								}
+							},
+							"response": []
+						}
+					],
+					"protocolProfileBehavior": {},
+					"_postman_isSubFolder": true
+				},
+				{
+					"name": "角色",
+					"item": [
+						{
+							"name": "列表",
+							"request": {
+								"method": "GET",
+								"header": [
+									{
+										"key": "token",
+										"value": "{{token}}",
+										"type": "text"
+									}
+								],
+								"url": {
+									"raw": "{{host}}/role/list?page=1&pageSize=10",
+									"host": [
+										"{{host}}"
+									],
+									"path": [
+										"role",
+										"list"
+									],
+									"query": [
+										{
+											"key": "page",
+											"value": "1"
+										},
+										{
+											"key": "pageSize",
+											"value": "10"
+										}
+									]
+								},
+								"description": "## 参数\r\n|键值|类型|说明|例子|\r\n|---|---|---|---|\r\n|page|string|页码|1|\r\n|pageSize|string|每页显示条数|10|\r\n\r\n## 返回\r\n|键值|类型|说明|例子|\r\n|---|---|---|---|\r\n|code|string|0:失败,1:成功|0|\r\n|msg|string|提示文字|成功\r\n|dataCount|string|数据总数|10\r\n|data|array|数据|[{role_id:'0bfc511116e7495bb393f902fdea01',role_name:'系统管理员',role_level:'1'}]|\r\n|data[0]|role_id|string|id|\r\n|data[0]|role_name|string|名称|\r\n|data[0]|role_level|string|角色等级|"
+							},
+							"response": []
+						},
+						{
+							"name": "编辑按钮",
+							"request": {
+								"method": "GET",
+								"header": [
+									{
+										"key": "token",
+										"value": "{{token}}",
+										"type": "text"
+									}
+								],
+								"url": {
+									"raw": "{{host}}/role/findById?role_id=1001",
+									"host": [
+										"{{host}}"
+									],
+									"path": [
+										"role",
+										"findById"
+									],
+									"query": [
+										{
+											"key": "role_id",
+											"value": "1001"
+										}
+									]
+								},
+								"description": "## 参数\r\n|键值|类型|说明|例子|\r\n|---|---|---|---|\r\n|role_id|string|id|0bfc511116e7495bb393f902fdea01|\r\n\r\n## 返回\r\n|键值|类型|说明|例子|\r\n|---|---|---|---|\r\n|code|string|0:失败,1:成功|0|\r\n|msg|string|提示文字|成功\r\n|data|object|数据||{role_id:'0bfc511116e7495bb393f902fdea01',role_name:'系统管理员',role_level:'1'}|\r\n|data[0]|role_id|string|id|\r\n|data[0]|role_name|string|名称|\r\n|data[0]|role_level|string|角色等级|"
+							},
+							"response": []
+						},
+						{
+							"name": "添加",
+							"request": {
+								"method": "POST",
+								"header": [
+									{
+										"key": "Content-Type",
+										"value": "application/json",
+										"type": "text"
+									},
+									{
+										"key": "token",
+										"value": "{{token}}",
+										"type": "text"
+									}
+								],
+								"body": {
+									"mode": "raw",
+									"raw": "{\"role_name\":\"测试5\",\"role_level\":\"5\"}",
+									"options": {
+										"raw": {}
+									}
+								},
+								"url": {
+									"raw": "{{host}}/role/add",
+									"host": [
+										"{{host}}"
+									],
+									"path": [
+										"role",
+										"add"
+									]
+								},
+								"description": "## 参数\r\n|键值|类型|说明|例子|\r\n|---|---|---|---|\r\n|role_name|string|名称|test|\r\n|role_level|string|等级|2|\r\n\r\n## 返回\r\n|键值|类型|说明|例子|\r\n|---|---|---|---|\r\n|code|string|0:失败,1:成功|0|\r\n|msg|string|提示文字|成功"
+							},
+							"response": []
+						},
+						{
+							"name": "编辑",
+							"request": {
+								"method": "POST",
+								"header": [
+									{
+										"key": "Content-Type",
+										"value": "application/json",
+										"type": "text"
+									},
+									{
+										"key": "token",
+										"value": "{{token}}",
+										"type": "text"
+									}
+								],
+								"body": {
+									"mode": "raw",
+									"raw": "{\"role_id\":\"b53dc7e601474a588d4c694198a9bbb3\",\"role_name\":\"测试5-1\",\"role_level\":\"5\"}",
+									"options": {
+										"raw": {}
+									}
+								},
+								"url": {
+									"raw": "{{host}}/role/edit",
+									"host": [
+										"{{host}}"
+									],
+									"path": [
+										"role",
+										"edit"
+									]
+								},
+								"description": "## 参数\r\n|键值|类型|说明|例子|\r\n|---|---|---|---|\r\n|role_id|string|id|0bfc511116e7495bb393f902fdea01|\r\n|role_name|string|名称|系统管理员|\r\n|role_level|string|等级|1|\r\n\r\n## 返回\r\n|键值|类型|说明|例子|\r\n|---|---|---|---|\r\n|code|string|0:失败,1:成功|0|\r\n|msg|string|提示文字|成功"
+							},
+							"response": []
+						},
+						{
+							"name": "删除",
+							"request": {
+								"method": "POST",
+								"header": [
+									{
+										"key": "Content-Type",
+										"type": "text",
+										"value": "application/json"
+									},
+									{
+										"key": "token",
+										"type": "text",
+										"value": "{{token}}"
+									}
+								],
+								"body": {
+									"mode": "raw",
+									"raw": "{\"role_id\":\"4d11d5fd98e6492890df56d4f7630\"}",
+									"options": {
+										"raw": {}
+									}
+								},
+								"url": {
+									"raw": "{{host}}/role/delete",
+									"host": [
+										"{{host}}"
+									],
+									"path": [
+										"role",
+										"delete"
+									]
+								},
+								"description": "## 参数\r\n|键值|类型|说明|例子|\r\n|---|---|---|---|\r\n|role_id|string|id|0bfc511116e7495bb393f902fdea01|\r\n\r\n## 返回\r\n|键值|类型|说明|例子|\r\n|---|---|---|---|\r\n|code|string|0:失败,1:成功|0|\r\n|msg|string|提示文字|成功"
+							},
+							"response": []
+						},
+						{
+							"name": "下拉框",
+							"request": {
+								"method": "GET",
+								"header": [
+									{
+										"key": "token",
+										"type": "text",
+										"value": "{{token}}"
+									}
+								],
+								"url": {
+									"raw": "{{host}}/role/getListIdAndName",
+									"host": [
+										"{{host}}"
+									],
+									"path": [
+										"role",
+										"getListIdAndName"
+									]
+								},
+								"description": "## 参数\r\n|键值|类型|说明|例子|\r\n|---|---|---|---|\r\n\r\n## 返回\r\n|键值|类型|说明|例子|\r\n|---|---|---|---|\r\n|code|string|0:失败,1:成功|0|\r\n|msg|string|提示文字|成功\r\n|data|array|数据|[{role_id:'0bfc511116e7495bb393f902fdea01',role_name:'系统管理员'}]|\r\n|data[0]|role_id|string|id|\r\n|data[0]|role_name|string|名称|\r\n"
+							},
+							"response": []
+						},
+						{
+							"name": "列表-权限设置按钮",
+							"request": {
+								"method": "GET",
+								"header": [
+									{
+										"key": "token",
+										"value": "{{token}}",
+										"type": "text"
+									}
+								],
+								"url": {
+									"raw": "{{host}}/roleAuthority/listForMenu?role_id=1001",
+									"host": [
+										"{{host}}"
+									],
+									"path": [
+										"roleAuthority",
+										"listForMenu"
+									],
+									"query": [
+										{
+											"key": "role_id",
+											"value": "1001"
+										}
+									]
+								},
+								"description": "## 参数\r\n|键值|类型|说明|例子|\r\n|---|---|---|---|\r\n|role_id|string|角色id|1001|\r\n\r\n## 返回\r\n|键值|类型|说明|例子|\r\n|---|---|---|---|\r\n|code|string|0:失败,1:成功|0|\r\n|msg|string|提示文字|成功\r\n|dataCount|string|数据总数|10\r\n|data|array|数据|[{menu_id:'1001',menu_name:'测试1-3',parent_id:'1001',menu_type:'',menu_value:'',menu_state:'',menu_order:'103',menu_url:'',menu_icon:'',role_ids:'',target:'',hasMenu:'false',subMenu:'[]',memo:''}]|\r\n|data[0]|menu_idstring||id|\r\n|data[0]|menu_name|string|名称|\r\n|data[0]|parent_id|string|上级菜单|\r\n|data[0]|menu_type|string|类型|\r\n|data[0]|menu_value|string|英文名称|\r\n|data[0]|menu_state|string|状态|\r\n|data[0]|menu_order|string|顺序|\r\n|data[0]|menu_url|string|连接|\r\n|data[0]|menu_icon|string|图标|\r\n|data[0]|role_ids|string|角色ids|\r\n|data[0]|target|string|菜单树标识|\r\n|data[0]|hasMenu|boolean|是否有该菜单|\r\n|data[0]|subMenu|array|下级菜单|\r\n|data[0]|memo|string|备注|"
+							},
+							"response": []
+						},
+						{
+							"name": "权限设置-提交",
+							"request": {
+								"method": "POST",
+								"header": [
+									{
+										"key": "Content-Type",
+										"value": "application/json",
+										"type": "text"
+									},
+									{
+										"key": "token",
+										"value": "{{token}}",
+										"type": "text"
+									}
+								],
+								"body": {
+									"mode": "raw",
+									"raw": "{\"role_id\":\"1002\",\"menu_ids\":[\"1002\",\"100201\",\"100202\"]}",
+									"options": {
+										"raw": {}
+									}
+								},
+								"url": {
+									"raw": "{{host}}/roleAuthority/add",
+									"host": [
+										"{{host}}"
+									],
+									"path": [
+										"roleAuthority",
+										"add"
+									]
+								},
+								"description": "## 参数\r\n|键值|类型|说明|例子|\r\n|---|---|---|---|\r\n|role_id|string|角色id|1002|\r\n|menu_ids|array|菜单id|['1001','100101']|\r\n\r\n\r\n## 返回\r\n|键值|类型|说明|例子|\r\n|---|---|---|---|\r\n|code|string|0:失败,1:成功|0|\r\n|msg|string|提示文字|成功"
+							},
+							"response": []
+						}
+					],
+					"protocolProfileBehavior": {},
+					"_postman_isSubFolder": true
+				},
+				{
+					"name": "菜单",
+					"item": [
+						{
+							"name": "列表",
+							"request": {
+								"method": "GET",
+								"header": [
+									{
+										"key": "token",
+										"value": "{{token}}",
+										"type": "text"
+									}
+								],
+								"url": {
+									"raw": "{{host}}/menu/list?page=1&pageSize=10",
+									"host": [
+										"{{host}}"
+									],
+									"path": [
+										"menu",
+										"list"
+									],
+									"query": [
+										{
+											"key": "page",
+											"value": "1"
+										},
+										{
+											"key": "pageSize",
+											"value": "10"
+										}
+									]
+								},
+								"description": "## 参数\r\n|键值|类型|说明|例子|\r\n|---|---|---|---|\r\n|page|string|页码|1|\r\n|pageSize|string|每页显示条数|10|\r\n\r\n## 返回\r\n|键值|类型|说明|例子|\r\n|---|---|---|---|\r\n|code|string|0:失败,1:成功|0|\r\n|msg|string|提示文字|成功\r\n|dataCount|string|数据总数|10\r\n|data|array|数据|[{menu_id:'100101',menu_name:'测试1-1',menu_value:'',menu_order:'101',menu_state:'1',menu_type:'',menu_url:'',parent_id:'1001',parent_name:'测试1',menu_icon:''}]|\r\n|data[0]|menu_id|string|id|\r\n|data[0]|menu_name|string|名称|\r\n|data[0]|menu_value|string|英文名称|\r\n|data[0]|menu_order|int|顺序|\r\n|data[0]|menu_state|int|状态|\r\n|data[0]|menu_type|string|类型|\r\n|data[0]|menu_url|string|连接|\r\n|data[0]|parent_id|string|上级菜单id|\r\n|data[0]|parent_name|string|上级菜单名称|\r\n|data[0]|menu_icon|string|图标|"
+							},
+							"response": []
+						},
+						{
+							"name": "编辑按钮",
+							"request": {
+								"method": "GET",
+								"header": [
+									{
+										"key": "token",
+										"value": "{{token}}",
+										"type": "text"
+									}
+								],
+								"url": {
+									"raw": "{{host}}/menu/findById?menu_id=1001",
+									"host": [
+										"{{host}}"
+									],
+									"path": [
+										"menu",
+										"findById"
+									],
+									"query": [
+										{
+											"key": "menu_id",
+											"value": "1001"
+										}
+									]
+								},
+								"description": "## 参数\r\n|键值|类型|说明|例子|\r\n|---|---|---|---|\r\n|menu_id|string|id|100101|\r\n\r\n## 返回\r\n|键值|类型|说明|例子|\r\n|---|---|---|---|\r\n|code|string|0:失败,1:成功|0|\r\n|msg|string|提示文字|成功\r\n|data|object|数据|{menu_id:'100101',menu_name:'测试1-1',menu_value:'',menu_order:'101',menu_state:'1',menu_type:'',menu_url:'',parent_id:'1001',parent_name:'测试1',menu_icon:''}|\r\n|data[0]|menu_id|string|id|\r\n|data[0]|menu_name|string|名称|\r\n|data[0]|menu_value|string|英文名称|\r\n|data[0]|menu_order|int|顺序|\r\n|data[0]|menu_state|int|状态|\r\n|data[0]|menu_type|string|类型|\r\n|data[0]|menu_url|string|连接|\r\n|data[0]|parent_id|string|上级菜单id|\r\n|data[0]|parent_name|string|上级菜单名称|\r\n|data[0]|menu_icon|string|图标|\r\n"
+							},
+							"response": []
+						},
+						{
+							"name": "添加",
+							"request": {
+								"method": "POST",
+								"header": [
+									{
+										"key": "Content-Type",
+										"value": "application/json",
+										"type": "text"
+									},
+									{
+										"key": "token",
+										"value": "{{token}}",
+										"type": "text"
+									}
+								],
+								"body": {
+									"mode": "raw",
+									"raw": "{\n\"menu_name\":\"测试4\",\n\"menu_value\":\"\",\n\"menu_order\":4,\n\"menu_state\":1,\n\"menu_type\":\"\",\n\"menu_url\":\"\",\n\"parent_id\":\"\",\n\"menu_icon\":\"\"\n}",
+									"options": {
+										"raw": {}
+									}
+								},
+								"url": {
+									"raw": "{{host}}/menu/add",
+									"host": [
+										"{{host}}"
+									],
+									"path": [
+										"menu",
+										"add"
+									]
+								},
+								"description": "## 参数\r\n|键值|类型|说明|例子|\r\n|---|---|---|---|\r\n|menu_name|string|名称|test|\r\n|menu_value|string|英文名称||\r\n|menu_order|string|顺序|1|\r\n|menu_state|string|状态|1|\r\n|menu_type|string|类型||\r\n|menu_url|string|连接||\r\n|parent_id|string|上级菜单||\r\n|menu_icon|string|图标||\r\n\r\n## 返回\r\n|键值|类型|说明|例子|\r\n|---|---|---|---|\r\n|code|string|0:失败,1:成功|0|\r\n|msg|string|提示文字|成功"
+							},
+							"response": []
+						},
+						{
+							"name": "编辑",
+							"request": {
+								"method": "POST",
+								"header": [
+									{
+										"key": "Content-Type",
+										"value": "application/json",
+										"type": "text"
+									},
+									{
+										"key": "token",
+										"value": "{{token}}",
+										"type": "text"
+									}
+								],
+								"body": {
+									"mode": "raw",
+									"raw": "{\n\"menu_id\":\"100303\",\n\"menu_name\":\"测试4-1\",\n\"menu_value\":\"\",\n\"menu_order\":4,\n\"menu_state\":1,\n\"menu_type\":\"\",\n\"menu_url\":\"\",\n\"parent_id\":\"\",\n\"menu_icon\":\"\"\n}",
+									"options": {
+										"raw": {}
+									}
+								},
+								"url": {
+									"raw": "{{host}}/menu/edit",
+									"host": [
+										"{{host}}"
+									],
+									"path": [
+										"menu",
+										"edit"
+									]
+								},
+								"description": "## 参数\r\n|键值|类型|说明|例子|\r\n|---|---|---|---|\r\n|menu_id|string|id|1001|\r\n|menu_name|string|名称|test|\r\n|menu_value|string|英文名称||\r\n|menu_order|int|顺序|1|\r\n|menu_state|int|状态|1|\r\n|menu_type|string|类型||\r\n|menu_url|string|连接||\r\n|parent_id|string|上级菜单||\r\n|menu_icon|string|图标||\r\n\r\n## 返回\r\n|键值|类型|说明|例子|\r\n|---|---|---|---|\r\n|code|string|0:失败,1:成功|0|\r\n|msg|string|提示文字|成功"
+							},
+							"response": []
+						},
+						{
+							"name": "删除",
+							"request": {
+								"method": "POST",
+								"header": [
+									{
+										"key": "Content-Type",
+										"type": "text",
+										"value": "application/json"
+									},
+									{
+										"key": "token",
+										"type": "text",
+										"value": "{{token}}"
+									}
+								],
+								"body": {
+									"mode": "raw",
+									"raw": "{\"menu_id\":\"100303\"}",
+									"options": {
+										"raw": {}
+									}
+								},
+								"url": {
+									"raw": "{{host}}/menu/delete",
+									"host": [
+										"{{host}}"
+									],
+									"path": [
+										"menu",
+										"delete"
+									]
+								},
+								"description": "## 参数\r\n|键值|类型|说明|例子|\r\n|---|---|---|---|\r\n|menu_id|string|id|1021201|\r\n\r\n## 返回\r\n|键值|类型|说明|例子|\r\n|---|---|---|---|\r\n|code|string|0:失败,1:成功|0|\r\n|msg|string|提示文字|成功"
+							},
+							"response": []
+						},
+						{
+							"name": "一级菜单下拉框",
+							"request": {
+								"method": "GET",
+								"header": [
+									{
+										"key": "token",
+										"type": "text",
+										"value": "{{token}}"
+									}
+								],
+								"url": {
+									"raw": "{{host}}/menu/getListSubIdAndName?menu_id=1001",
+									"host": [
+										"{{host}}"
+									],
+									"path": [
+										"menu",
+										"getListSubIdAndName"
+									],
+									"query": [
+										{
+											"key": "menu_id",
+											"value": "1001",
+											"description": "需要指定某个一级菜单的子集菜单是需要传递，获取全部子集不需要传"
+										}
+									]
+								},
+								"description": "## 参数\r\n|键值|类型|说明|例子|\r\n|---|---|---|---|\r\n\r\n## 返回\r\n|键值|类型|说明|例子|\r\n|---|---|---|---|\r\n|code|string|0:失败,1:成功|0|\r\n|msg|string|提示文字|成功\r\n|data|array|数据|[{menu_id:'1001',menu_name:'测试1'}]|\r\n|data[0]|menu_id|string|id|\r\n|data[0]|menu_name|string|名称|"
+							},
+							"response": []
+						},
+						{
+							"name": "登录左侧菜单列表",
+							"request": {
+								"method": "GET",
+								"header": [
+									{
+										"key": "token",
+										"type": "text",
+										"value": "{{token}}"
+									}
+								],
+								"url": {
+									"raw": "{{host}}/menu/listForMenu",
+									"host": [
+										"{{host}}"
+									],
+									"path": [
+										"menu",
+										"listForMenu"
+									]
+								},
+								"description": "## 参数\r\n|键值|类型|说明|例子|\r\n|---|---|---|---|\r\n\r\n## 返回\r\n|键值|类型|说明|例子|\r\n|---|---|---|---|\r\n|code|string|0:失败,1:成功|0|\r\n|msg|string|提示文字|成功\r\n|data|array|数据|[{menu_id:'100101',menu_name:'测试1-1',menu_value:'',menu_order:'101',menu_state:'1',menu_type:'',menu_url:'',parent_id:'1001',parent_name:'测试1',menu_icon:'',role_id:'1001，1002'}]|\r\n|data[0]|menu_id|string|id|\r\n|data[0]|menu_name|string|名称|\r\n|data[0]|menu_value|string|英文名称|\r\n|data[0]|menu_order|int|顺序|\r\n|data[0]|menu_state|int|状态|\r\n|data[0]|menu_type|string|类型|\r\n|data[0]|menu_url|string|连接|\r\n|data[0]|parent_id|string|上级菜单id|\r\n|data[0]|parent_name|上级菜单名称|\r\n|data[0]|menu_icon|string|图标|\r\n|data[0]|role_id|string|菜单授权角色|"
+							},
+							"response": []
+						},
+						{
+							"name": "子菜单下拉框",
+							"request": {
+								"method": "GET",
+								"header": [
+									{
+										"key": "token",
+										"type": "text",
+										"value": "{{token}}"
+									}
+								],
+								"url": {
+									"raw": "{{host}}/menu/getListParentIdAndName",
+									"host": [
+										"{{host}}"
+									],
+									"path": [
+										"menu",
+										"getListParentIdAndName"
+									]
+								},
+								"description": "## 参数\r\n|键值|类型|说明|例子|\r\n|---|---|---|---|\r\n|menu_id|string|id|如果需要获取指定的菜单下的子集需要传递menu_id\r\n\r\n## 返回\r\n|键值|类型|说明|例子|\r\n|---|---|---|---|\r\n|code|string|0:失败,1:成功|0|\r\n|msg|string|提示文字|成功\r\n|data|array|数据|[{menu_id:'1001',menu_name:'测试1'}]|\r\n|data[0]|menu_id|string|id|\r\n|data[0]|menu_name|string|名称|"
+							},
+							"response": []
+						},
+						{
+							"name": "菜单树",
+							"request": {
+								"method": "GET",
+								"header": [
+									{
+										"key": "token",
+										"type": "text",
+										"value": "{{token}}"
+									}
+								],
+								"url": {
+									"raw": "{{host}}/menu/listForMenuTree",
+									"host": [
+										"{{host}}"
+									],
+									"path": [
+										"menu",
+										"listForMenuTree"
+									]
+								},
+								"description": "## 参数\r\n|键值|类型|说明|例子|\r\n|---|---|---|---|\r\n\r\n## 返回\r\n|键值|类型|说明|例子|\r\n|---|---|---|---|\r\n|code|string|0:失败,1:成功|0|\r\n|msg|string|提示文字|成功\r\n|data|array|数据|[{menu_id:'100101',menu_name:'测试1-1',menu_value:'',menu_order:'101',menu_state:'1',menu_type:'',menu_url:'',parent_id:'1001',parent_name:'测试1',menu_icon:'',role_id:'1001，1002'}]|\r\n|data[0]|menu_id|string|id|\r\n|data[0]|menu_name|string|名称|\r\n|data[0]|menu_value|string|英文名称|\r\n|data[0]|menu_order|int|顺序|\r\n|data[0]|menu_state|int|状态|\r\n|data[0]|menu_type|string|类型|\r\n|data[0]|menu_url|string|连接|\r\n|data[0]|parent_id|string|上级菜单id|\r\n|data[0]|parent_name|上级菜单名称|\r\n|data[0]|menu_icon|string|图标|\r\n|data[0]|role_id|string|菜单授权角色|"
+							},
+							"response": []
+						}
+					],
+					"protocolProfileBehavior": {},
+					"_postman_isSubFolder": true
+				},
+				{
+					"name": "校园地图",
+					"item": [
+						{
+							"name": "上传",
+							"request": {
+								"method": "POST",
+								"header": [
+									{
+										"key": "Content-Type",
+										"value": "application/json",
+										"type": "text"
+									},
+									{
+										"key": "token",
+										"value": "{{token}}",
+										"type": "text"
+									}
+								],
+								"body": {
+									"mode": "formdata",
+									"formdata": [
+										{
+											"key": "file",
+											"type": "file",
+											"src": "/D:/哈工大.jfif"
+										}
+									],
+									"options": {
+										"formdata": {}
+									}
+								},
+								"url": {
+									"raw": "{{host}}/campusMap/uploadMap?fileFolder=campusMap",
+									"host": [
+										"{{host}}"
+									],
+									"path": [
+										"campusMap",
+										"uploadMap"
+									],
+									"query": [
+										{
+											"key": "fileFolder",
+											"value": "campusMap"
+										}
+									]
+								},
+								"description": "## 参数\r\n|键值|类型|说明|例子|\r\n|---|---|---|---|\r\n|fileFolder|string|目录名|campusMap|\r\n|file|file|文件|test.txt|\r\n\r\n## 返回\r\n|键值|类型|说明|例子|\r\n|---|---|---|---|\r\n|code|string|0:失败,1:成功|0|\r\n|msg|string|提示文字|成功\r\n|data|object|数据|{map_id:'34e10c2ec532452f86cb46666b053b34',map_name:'哈工大.jfif',creator:'5af0f0f8245e47d3afdc2bd5696fa0c9',create_date:'2020-02-12 13:25:01',map_path:'/uploadFiles/file/campusMap/73be8060e7174478a55b64a0698538c0.jfif'}|\r\n|data[0]|map_id|id|\r\n|data[0]|map_name|名称|\r\n|data[0]|creator|创建人|\r\n|data[0]|create_date|创建时间|\r\n|data[0]|map_path|路径|\r\n\r\n"
+							},
+							"response": []
+						},
+						{
+							"name": "获取地图",
+							"request": {
+								"method": "GET",
+								"header": [
+									{
+										"key": "token",
+										"type": "text",
+										"value": "{{token}}"
+									}
+								],
+								"url": {
+									"raw": "{{host}}/campusMap/findLastInfo",
+									"host": [
+										"{{host}}"
+									],
+									"path": [
+										"campusMap",
+										"findLastInfo"
+									]
+								},
+								"description": "## 参数\r\n|键值|类型|说明|例子|\r\n|---|---|---|---|\r\n\r\n## 返回\r\n|键值|类型|说明|例子|\r\n|---|---|---|---|\r\n|code|string|0:失败,1:成功|0|\r\n|msg|string|提示文字|成功\r\n|data|object|数据|{map_id:'34e10c2ec532452f86cb46666b053b34',map_name:'哈工大.jfif',creator:'5af0f0f8245e47d3afdc2bd5696fa0c9',create_date:'2020-02-12 13:25:01',map_path:'/uploadFiles/file/campusMap/73be8060e7174478a55b64a0698538c0.jfif'}|\r\n|data[0]|map_id|string|id|\r\n|data[0]|map_name|string|名称|\r\n|data[0]|creator|string|创建人|\r\n|data[0]|create_date|string|创建时间|\r\n|data[0]|map_path|string|路径|"
+							},
+							"response": []
+						},
+						{
+							"name": "删除",
+							"request": {
+								"method": "POST",
+								"header": [
+									{
+										"key": "Content-Type",
+										"type": "text",
+										"value": "application/json"
+									},
+									{
+										"key": "token",
+										"type": "text",
+										"value": "{{token}}"
+									}
+								],
+								"body": {
+									"mode": "raw",
+									"raw": "{\"map_id\":\"f94eb3a7e92a41dd9af1a8ae0b6ad376\"}",
+									"options": {
+										"raw": {}
+									}
+								},
+								"url": {
+									"raw": "{{host}}/campusMap/delete",
+									"host": [
+										"{{host}}"
+									],
+									"path": [
+										"campusMap",
+										"delete"
+									]
+								},
+								"description": "## 参数\r\n|键值|类型|说明|例子|\r\n|---|---|---|---|\r\n|map_id|string|id|0bfc511116e7495bb393f902fdea01|\r\n\r\n## 返回\r\n|键值|类型|说明|例子|\r\n|---|---|---|---|\r\n|code|string|0:失败,1:成功|0|\r\n|msg|string|提示文字|成功"
+							},
+							"response": []
+						}
+					],
+					"protocolProfileBehavior": {},
+					"_postman_isSubFolder": true
+				},
+				{
+					"name": "终端类型",
+					"item": [
+						{
+							"name": "列表",
+							"request": {
+								"method": "GET",
+								"header": [
+									{
+										"key": "token",
+										"value": "{{token}}",
+										"type": "text"
+									}
+								],
+								"url": {
+									"raw": "{{host}}/termType/list?page=1&pageSize=10",
+									"host": [
+										"{{host}}"
+									],
+									"path": [
+										"termType",
+										"list"
+									],
+									"query": [
+										{
+											"key": "page",
+											"value": "1"
+										},
+										{
+											"key": "pageSize",
+											"value": "10"
+										}
+									]
+								},
+								"description": "## 参数\r\n|键值|类型|说明|例子|\r\n|---|---|---|---|\r\n|page|string|页码|1|\r\n|pageSize|string|每页显示条数|10|\r\n\r\n## 返回\r\n|键值|类型|说明|例子|\r\n|---|---|---|---|\r\n|code|string|0:失败,1:成功|0|\r\n|msg|string|提示文字|成功\r\n|dataCount|string|数据总数|10\r\n|data|array|数据|[{type_id:'1001',type_name:'主机',parent_id:'1002',parent_name:'示例'}]|\r\n|data[0]|type_id|string|id|\r\n|data[0]|type_name|string|名称|\r\n|data[0]|parent_id|string|上级id|\r\n|data[0]|parent_name|string|上级名称|"
+							},
+							"response": []
+						},
+						{
+							"name": "下拉框",
+							"request": {
+								"method": "GET",
+								"header": [
+									{
+										"key": "token",
+										"type": "text",
+										"value": "{{token}}"
+									}
+								],
+								"url": {
+									"raw": "{{host}}/termType/getListIdAndName",
+									"host": [
+										"{{host}}"
+									],
+									"path": [
+										"termType",
+										"getListIdAndName"
+									]
+								},
+								"description": "## 参数\r\n|键值|类型|说明|例子|\r\n|---|---|---|---|\r\n\r\n## 返回\r\n|键值|类型|说明|例子|\r\n|---|---|---|---|\r\n|code|string|0:失败,1:成功|0|\r\n|msg|string|提示文字|成功\r\n|data|array|数据|[{type_id:'1001',type_name:'主机'}]|\r\n|data[0]|type_id|string|id|\r\n|data[0]|type_name|string|名称|"
+							},
+							"response": []
+						},
+						{
+							"name": "删除",
+							"request": {
+								"method": "POST",
+								"header": [
+									{
+										"key": "Content-Type",
+										"type": "text",
+										"value": "application/json"
+									},
+									{
+										"key": "token",
+										"type": "text",
+										"value": "{{token}}"
+									}
+								],
+								"body": {
+									"mode": "raw",
+									"raw": "{\"type_id\":\"0bfc511116e7495bb393f902fdea01b1\"}",
+									"options": {
+										"raw": {}
+									}
+								},
+								"url": {
+									"raw": "{{host}}/termType/delete",
+									"host": [
+										"{{host}}"
+									],
+									"path": [
+										"termType",
+										"delete"
+									]
+								},
+								"description": "## 参数\r\n|键值|类型|说明|例子|\r\n|---|---|---|---|\r\n|type_id|string|id|0bfc511116e7495bb393f902fdea01|\r\n\r\n## 返回\r\n|键值|类型|说明|例子|\r\n|---|---|---|---|\r\n|code|string|0:失败,1:成功|0|\r\n|msg|string|提示文字|成功"
+							},
+							"response": []
+						},
+						{
+							"name": "添加",
+							"request": {
+								"method": "POST",
+								"header": [
+									{
+										"key": "Content-Type",
+										"value": "application/json",
+										"type": "text"
+									},
+									{
+										"key": "token",
+										"value": "{{token}}",
+										"type": "text"
+									}
+								],
+								"body": {
+									"mode": "raw",
+									"raw": "{\"type_name\":\"测试\",\"parent_id\":\"\"}",
+									"options": {
+										"raw": {}
+									}
+								},
+								"url": {
+									"raw": "{{host}}/termType/add",
+									"host": [
+										"{{host}}"
+									],
+									"path": [
+										"termType",
+										"add"
+									]
+								},
+								"description": "## 参数\r\n|键值|类型|说明|例子|\r\n|---|---|---|---|\r\n|type_name|string|名称|test|\r\n|parent_id|string|上级||\r\n\r\n\r\n## 返回\r\n|键值|类型|说明|例子|\r\n|---|---|---|---|\r\n|code|string|0:失败,1:成功|0|\r\n|msg|string|提示文字|成功"
+							},
+							"response": []
+						},
+						{
+							"name": "编辑",
+							"request": {
+								"method": "POST",
+								"header": [
+									{
+										"key": "Content-Type",
+										"value": "application/json",
+										"type": "text"
+									},
+									{
+										"key": "token",
+										"value": "{{token}}",
+										"type": "text"
+									}
+								],
+								"body": {
+									"mode": "raw",
+									"raw": "{\"type_id\":\"0bfc511116e7495bb393f902fdea01b1\",\"type_name\":\"测试1\",\"parent_id\":\"12345678\"}",
+									"options": {
+										"raw": {}
+									}
+								},
+								"url": {
+									"raw": "{{host}}/termType/edit",
+									"host": [
+										"{{host}}"
+									],
+									"path": [
+										"termType",
+										"edit"
+									]
+								},
+								"description": "## 参数\r\n|键值|类型|说明|例子|\r\n|---|---|---|---|\r\n|type_id|string|id|45hgfh45dhhehd4562|\r\n|type_name|string|名称|test|\r\n|parent_id|string|上级||\r\n\r\n\r\n## 返回\r\n|键值|类型|说明|例子|\r\n|---|---|---|---|\r\n|code|string|0:失败,1:成功|0|\r\n|msg|string|提示文字|成功"
+							},
+							"response": []
+						},
+						{
+							"name": "编辑按钮",
+							"request": {
+								"method": "GET",
+								"header": [
+									{
+										"key": "token",
+										"type": "text",
+										"value": "{{token}}"
+									}
+								],
+								"url": {
+									"raw": "{{host}}/termType/findById?type_id=1001",
+									"host": [
+										"{{host}}"
+									],
+									"path": [
+										"termType",
+										"findById"
+									],
+									"query": [
+										{
+											"key": "type_id",
+											"value": "1001"
+										}
+									]
+								},
+								"description": "## 参数\r\n|键值|类型|说明|例子|\r\n|---|---|---|---|\r\n|type_id|string|id|1001|\r\n\r\n## 返回\r\n|键值|类型|说明|例子|\r\n|---|---|---|---|\r\n|code|string|0:失败,1:成功|0|\r\n|msg|string|提示文字|成功\r\n|data|object|数据||{type_id:'1001',type_name:'主机',parent_id:'',parent_name:'',monitor_items:'',monitor_remotes:''}|\r\n|data[0]|type_id|string|id|\r\n|data[0]|type_name|string|名称|\r\n|data[0]|parent_id|string|一级分类id|\r\n|data[0]|parent_name|string|一级分类名称|\r\n|data[0]|monitor_items|string|监控项|\r\n|data[0]|monitor_remotes|string|远程控制项|"
+							},
+							"response": []
+						},
+						{
+							"name": "二级下拉框",
+							"request": {
+								"method": "GET",
+								"header": [
+									{
+										"key": "token",
+										"type": "text",
+										"value": "{{token}}"
+									}
+								],
+								"url": {
+									"raw": "{{host}}/termType/getListISubIdAndName",
+									"host": [
+										"{{host}}"
+									],
+									"path": [
+										"termType",
+										"getListISubIdAndName"
+									]
+								},
+								"description": "## 参数\r\n|键值|类型|说明|例子|\r\n|---|---|---|---|\r\n\r\n## 返回\r\n|键值|类型|说明|例子|\r\n|---|---|---|---|\r\n|code|string|0:失败,1:成功|0|\r\n|msg|string|提示文字|成功\r\n|data|array|数据|[{type_id:'1001',type_name:'主机'}]|\r\n|data[0]|type_id|string|id|\r\n|data[0]|type_name|string|名称|"
+							},
+							"response": []
+						},
+						{
+							"name": "一级下拉框",
+							"request": {
+								"method": "GET",
+								"header": [
+									{
+										"key": "token",
+										"type": "text",
+										"value": "{{token}}"
+									}
+								],
+								"url": {
+									"raw": "{{host}}/termType/getListIParentIdAndName",
+									"host": [
+										"{{host}}"
+									],
+									"path": [
+										"termType",
+										"getListIParentIdAndName"
+									]
+								},
+								"description": "## 参数\r\n|键值|类型|说明|例子|\r\n|---|---|---|---|\r\n\r\n## 返回\r\n|键值|类型|说明|例子|\r\n|---|---|---|---|\r\n|code|string|0:失败,1:成功|0|\r\n|msg|string|提示文字|成功\r\n|data|array|数据|[{type_id:'1001',type_name:'主机'}]|\r\n|data[0]|type_id|string|id|\r\n|data[0]|type_name|string|名称|"
+							},
+							"response": []
+						},
+						{
+							"name": "终端类型下拉框-新",
+							"request": {
+								"method": "GET",
+								"header": [
+									{
+										"key": "token",
+										"type": "text",
+										"value": "{{token}}"
+									}
+								],
+								"url": {
+									"raw": "{{host}}/termType/getListIdAndNameByTypeId",
+									"host": [
+										"{{host}}"
+									],
+									"path": [
+										"termType",
+										"getListIdAndNameByTypeId"
+									],
+									"query": [
+										{
+											"key": "type_id",
+											"value": "1004",
+											"disabled": true
+										}
+									]
+								},
+								"description": "## 参数\r\n|键值|类型|说明|例子|\r\n|---|---|---|---|\r\n\r\n## 返回\r\n|键值|类型|说明|例子|\r\n|---|---|---|---|\r\n|code|string|0:失败,1:成功|0|\r\n|msg|string|提示文字|成功\r\n|data|array|数据|[{type_id:'1001',type_name:'主机'}]|\r\n|data[0]|type_id|string|id|\r\n|data[0]|type_name|string|名称|"
+							},
+							"response": []
+						}
+					],
+					"protocolProfileBehavior": {},
+					"_postman_isSubFolder": true
+				},
+				{
+					"name": "终端型号",
+					"item": [
+						{
+							"name": "列表",
+							"request": {
+								"method": "GET",
+								"header": [
+									{
+										"key": "token",
+										"value": "{{token}}",
+										"type": "text"
+									}
+								],
+								"url": {
+									"raw": "{{host}}/termModel/list?page=1&pageSize=10",
+									"host": [
+										"{{host}}"
+									],
+									"path": [
+										"termModel",
+										"list"
+									],
+									"query": [
+										{
+											"key": "page",
+											"value": "1"
+										},
+										{
+											"key": "pageSize",
+											"value": "10"
+										}
+									]
+								},
+								"description": "## 参数\r\n|键值|类型|说明|例子|\r\n|---|---|---|---|\r\n|page|string|页码|1|\r\n|pageSize|string|每页显示条数|10|\r\n\r\n## 返回\r\n|键值|类型|说明|例子|\r\n|---|---|---|---|\r\n|code|string|0:失败,1:成功|0|\r\n|msg|string|提示文字|成功\r\n|dataCount|string|数据总数|10\r\n|data|array|数据|[{model_id:'1001',model_name:'',type_id:'',type_name:'',parent_type_id:'',parent_type_name:'',model:'',memo:''}]|\r\n|data[0]|model_id|string|id|\r\n|data[0]|model_name|string|名称|\r\n|data[0]|type_id|string|二级分类id|\r\n|data[0]|type_name|string|二级分类名称|\r\n|data[0]|parent_type_id|string|一级分类id|\r\n|data[0]|parent_type_name|string|一级分类名称|\r\n|data[0]|model|string|型号|\r\n|data[0]|memo|string|备注|"
+							},
+							"response": []
+						},
+						{
+							"name": "下拉框",
+							"request": {
+								"method": "GET",
+								"header": [
+									{
+										"key": "token",
+										"type": "text",
+										"value": "{{token}}"
+									}
+								],
+								"url": {
+									"raw": "{{host}}/termModel/getListIdAndName",
+									"host": [
+										"{{host}}"
+									],
+									"path": [
+										"termModel",
+										"getListIdAndName"
+									]
+								},
+								"description": "## 参数\r\n|键值|类型|说明|例子|\r\n|---|---|---|---|\r\n\r\n## 返回\r\n|键值|类型|说明|例子|\r\n|---|---|---|---|\r\n|code|string|0:失败,1:成功|0|\r\n|msg|string|提示文字|成功\r\n|data|array|数据|[{model_id:'1001',model_name:'12323'}]|\r\n|data[0]|model_id|string|id|\r\n|data[0]|model_name|string|名称|"
+							},
+							"response": []
+						},
+						{
+							"name": "删除",
+							"request": {
+								"method": "POST",
+								"header": [
+									{
+										"key": "Content-Type",
+										"type": "text",
+										"value": "application/json"
+									},
+									{
+										"key": "token",
+										"type": "text",
+										"value": "{{token}}"
+									}
+								],
+								"body": {
+									"mode": "raw",
+									"raw": "{\"model_id\":\"0bfc511116e7495bb393f902fdea01b1\"}",
+									"options": {
+										"raw": {}
+									}
+								},
+								"url": {
+									"raw": "{{host}}/termModel/delete",
+									"host": [
+										"{{host}}"
+									],
+									"path": [
+										"termModel",
+										"delete"
+									]
+								},
+								"description": "## 参数\r\n|键值|类型|说明|例子|\r\n|---|---|---|---|\r\n|model_id|string|id|0bfc511116e7495bb393f902fdea01|\r\n\r\n## 返回\r\n|键值|类型|说明|例子|\r\n|---|---|---|---|\r\n|code|string|0:失败,1:成功|0|\r\n|msg|string|提示文字|成功"
+							},
+							"response": []
+						},
+						{
+							"name": "添加",
+							"request": {
+								"method": "POST",
+								"header": [
+									{
+										"key": "Content-Type",
+										"value": "application/json",
+										"type": "text"
+									},
+									{
+										"key": "token",
+										"value": "{{token}}",
+										"type": "text"
+									}
+								],
+								"body": {
+									"mode": "raw",
+									"raw": "{\"model_name\":\"测试\",\"parent_type_id\":\"1021\",\"type_id\":\"1001\",\"model\":\"m_12346\",\"memo\":\"123\"}",
+									"options": {
+										"raw": {}
+									}
+								},
+								"url": {
+									"raw": "{{host}}/termModel/add",
+									"host": [
+										"{{host}}"
+									],
+									"path": [
+										"termModel",
+										"add"
+									]
+								},
+								"description": "## 参数\r\n|键值|类型|说明|例子|\r\n|---|---|---|---|\r\n|model_name|string|名称|test|\r\n|parent_type_id|string|一级分类||\r\n|type_id|string|二级分类||\r\n|model|string|型号||\r\n\r\n\r\n## 返回\r\n|键值|类型|说明|例子|\r\n|---|---|---|---|\r\n|code|string|0:失败,1:成功|0|\r\n|msg|string|提示文字|成功"
+							},
+							"response": []
+						},
+						{
+							"name": "编辑",
+							"request": {
+								"method": "POST",
+								"header": [
+									{
+										"key": "Content-Type",
+										"value": "application/json",
+										"type": "text"
+									},
+									{
+										"key": "token",
+										"value": "{{token}}",
+										"type": "text"
+									}
+								],
+								"body": {
+									"mode": "raw",
+									"raw": "{\"model_id\":\"7ba2b98f4640420d97f1a7e4d6791e79\",\"model_name\":\"测试\",\"parent_type_id\":\"1021\",\"type_id\":\"1001\",\"model\":\"m_12346\",\"memo\":\"123\"}",
+									"options": {
+										"raw": {}
+									}
+								},
+								"url": {
+									"raw": "{{host}}/termModel/edit",
+									"host": [
+										"{{host}}"
+									],
+									"path": [
+										"termModel",
+										"edit"
+									]
+								},
+								"description": "## 参数\r\n|键值|类型|说明|例子|\r\n|---|---|---|---|\r\n|model_id|string|id||\r\n|model_name|string|名称|test|\r\n|parent_type_id|string|一级分类||\r\n|type_id|string|二级分类||\r\n|model|string|型号||\r\n\r\n\r\n## 返回\r\n|键值|类型|说明|例子|\r\n|---|---|---|---|\r\n|code|string|0:失败,1:成功|0|\r\n|msg|string|提示文字|成功"
+							},
+							"response": []
+						},
+						{
+							"name": "编辑按钮",
+							"request": {
+								"method": "GET",
+								"header": [
+									{
+										"key": "token",
+										"type": "text",
+										"value": "{{token}}"
+									}
+								],
+								"url": {
+									"raw": "{{host}}/termModel/findById?model_id=0bfc511116e7495bb393f902fdea01",
+									"host": [
+										"{{host}}"
+									],
+									"path": [
+										"termModel",
+										"findById"
+									],
+									"query": [
+										{
+											"key": "model_id",
+											"value": "0bfc511116e7495bb393f902fdea01"
+										}
+									]
+								},
+								"description": "## 参数\r\n|键值|类型|说明|例子|\r\n|---|---|---|---|\r\n|model_id|string|id|0bfc511116e7495bb393f902fdea01|\r\n\r\n## 返回\r\n|键值|类型|说明|例子|\r\n|---|---|---|---|\r\n|code|string|0:失败,1:成功|0|\r\n|msg|string|提示文字|成功\r\n|data|object|数据||{model_id:'1001',model_name:'',type_id:'',type_name:'',parent_type_id:'',parent_type_name:'',model:'',memo:''}|\r\n|data[0]|model_id|string|id|\r\n|data[0]|model_name|string|名称|\r\n|data[0]|type_id|string|二级分类id|\r\n|data[0]|type_name|string|二级分类名称|\r\n|data[0]|parent_type_id|string|一级分类id|\r\n|data[0]|parent_type_name|string|一级分类名称|\r\n|data[0]|model|string|型号|\r\n|data[0]|memo|string|备注|"
+							},
+							"response": []
+						}
+					],
+					"protocolProfileBehavior": {},
+					"_postman_isSubFolder": true
+				},
+				{
+					"name": "终端版本",
+					"item": [
+						{
+							"name": "列表",
+							"request": {
+								"method": "GET",
+								"header": [
+									{
+										"key": "token",
+										"value": "{{token}}",
+										"type": "text"
+									}
+								],
+								"url": {
+									"raw": "{{host}}/termVersion/list?page=1&pageSize=10",
+									"host": [
+										"{{host}}"
+									],
+									"path": [
+										"termVersion",
+										"list"
+									],
+									"query": [
+										{
+											"key": "page",
+											"value": "1"
+										},
+										{
+											"key": "pageSize",
+											"value": "10"
+										}
+									]
+								},
+								"description": "## 参数\r\n|键值|类型|说明|例子|\r\n|---|---|---|---|\r\n|page|string|页码|1|\r\n|pageSize|string|每页显示条数|10|\r\n\r\n## 返回\r\n|键值|类型|说明|例子|\r\n|---|---|---|---|\r\n|code|string|0:失败,1:成功|0|\r\n|msg|string|提示文字|成功\r\n|dataCount|string|数据总数|10\r\n|data|array|数据|[{version_id:'1001',version_name:'',type_id:'',type_name:'',parent_type_id:'',parent_type_name:'',update_date:'',memo:''model_id:'[\\\"7ba2b98f4640420d97f1a7e4d6791e79\\\", \\\"7ba2b98f4640420d97f1a7e4d6791e78\\\"]',model_name:'测试2,测试1'}]|\r\n|data[0]|version_id|string|id|\r\n|data[0]|version_name|string|名称|\r\n|data[0]|type_id|string|二级分类id|\r\n|data[0]|type_name|string|二级分类名称|\r\n|data[0]|parent_type_id|string|一级分类id|\r\n|data[0]|parent_type_name|string|一级分类名称|\r\n|data[0]|update_date|string|更新时间|\r\n|data[0]|model_id|string|型号id|\r\n|data[0]|model_name|string|型号名称|\r\n|data[0]|memo|string|更新说明|"
+							},
+							"response": []
+						},
+						{
+							"name": "下拉框",
+							"request": {
+								"method": "GET",
+								"header": [
+									{
+										"key": "token",
+										"type": "text",
+										"value": "{{token}}"
+									}
+								],
+								"url": {
+									"raw": "{{host}}/termVersion/getListIdAndName",
+									"host": [
+										"{{host}}"
+									],
+									"path": [
+										"termVersion",
+										"getListIdAndName"
+									]
+								},
+								"description": "## 参数\r\n|键值|类型|说明|例子|\r\n|---|---|---|---|\r\n\r\n## 返回\r\n|键值|类型|说明|例子|\r\n|---|---|---|---|\r\n|code|string|0:失败,1:成功|0|\r\n|msg|string|提示文字|成功\r\n|data|array|数据|[{version_id:'1001',version_name:'12323'}]|\r\n|data[0]|version_id|string|id|\r\n|data[0]|version_name|string|名称|"
+							},
+							"response": []
+						},
+						{
+							"name": "删除",
+							"request": {
+								"method": "POST",
+								"header": [
+									{
+										"key": "Content-Type",
+										"type": "text",
+										"value": "application/json"
+									},
+									{
+										"key": "token",
+										"type": "text",
+										"value": "{{token}}"
+									}
+								],
+								"body": {
+									"mode": "raw",
+									"raw": "{\"version_id\":\"0bfc511116e7495bb393f902fdea01b1\"}",
+									"options": {
+										"raw": {}
+									}
+								},
+								"url": {
+									"raw": "{{host}}/termModel/delete",
+									"host": [
+										"{{host}}"
+									],
+									"path": [
+										"termModel",
+										"delete"
+									]
+								},
+								"description": "## 参数\r\n|键值|类型|说明|例子|\r\n|---|---|---|---|\r\n|version_id|string|id|0bfc511116e7495bb393f902fdea01|\r\n\r\n## 返回\r\n|键值|类型|说明|例子|\r\n|---|---|---|---|\r\n|code|string|0:失败,1:成功|0|\r\n|msg|string|提示文字|成功"
+							},
+							"response": []
+						},
+						{
+							"name": "添加",
+							"request": {
+								"method": "POST",
+								"header": [
+									{
+										"key": "Content-Type",
+										"value": "application/json",
+										"type": "text"
+									},
+									{
+										"key": "token",
+										"value": "{{token}}",
+										"type": "text"
+									}
+								],
+								"body": {
+									"mode": "raw",
+									"raw": "{\"version_name\":\"测试\",\n\"parent_type_id\":\"1021\",\n\"type_id\":\"1001\",\n\"model_id\":[\"7ba2b98f4640420d97f1a7e4d6791e79\", \"7ba2b98f4640420d97f1a7e4d6791e78\"],\n\"memo\":\"123\"}",
+									"options": {
+										"raw": {}
+									}
+								},
+								"url": {
+									"raw": "{{host}}/termVersion/add",
+									"host": [
+										"{{host}}"
+									],
+									"path": [
+										"termVersion",
+										"add"
+									]
+								},
+								"description": "## 参数\r\n|键值|类型|说明|例子|\r\n|---|---|---|---|\r\n|version_name|string|名称|test|\r\n|parent_type_id|string|一级分类||\r\n|type_id|string|二级分类||\r\n|model_id|array|型号|[\"1\",\"2\"]|\r\n|memo|string|更新说明||\r\n\r\n\r\n## 返回\r\n|键值|类型|说明|例子|\r\n|---|---|---|---|\r\n|code|string|0:失败,1:成功|0|\r\n|msg|string|提示文字|成功"
+							},
+							"response": []
+						},
+						{
+							"name": "编辑",
+							"request": {
+								"method": "POST",
+								"header": [
+									{
+										"key": "Content-Type",
+										"value": "application/json",
+										"type": "text"
+									},
+									{
+										"key": "token",
+										"value": "{{token}}",
+										"type": "text"
+									}
+								],
+								"body": {
+									"mode": "raw",
+									"raw": "{\"version_id\":\"1001\",\n\"version_name\":\"测试\",\n\"parent_type_id\":\"1021\",\n\"type_id\":\"1001\",\n\"model_id\":[\"7ba2b98f4640420d97f1a7e4d6791e79\", \"7ba2b98f4640420d97f1a7e4d6791e78\"],\n\"memo\":\"123\"}",
+									"options": {
+										"raw": {}
+									}
+								},
+								"url": {
+									"raw": "{{host}}/termVersion/edit",
+									"host": [
+										"{{host}}"
+									],
+									"path": [
+										"termVersion",
+										"edit"
+									]
+								},
+								"description": "## 参数\r\n|键值|类型|说明|例子|\r\n|---|---|---|---|\r\n|version_id|string|id||\r\n|version_name|string|名称|test|\r\n|parent_type_id|string|一级分类||\r\n|type_id|string|二级分类||\r\n|model_id|array|型号|[\"1\",\"2\"]|\r\n|memo|string|更新说明||\r\n\r\n\r\n## 返回\r\n|键值|类型|说明|例子|\r\n|---|---|---|---|\r\n|code|string|0:失败,1:成功|0|\r\n|msg|string|提示文字|成功"
+							},
+							"response": []
+						},
+						{
+							"name": "编辑按钮",
+							"request": {
+								"method": "GET",
+								"header": [
+									{
+										"key": "token",
+										"type": "text",
+										"value": "{{token}}"
+									}
+								],
+								"url": {
+									"raw": "{{host}}/termVersion/findById?version_id=1001",
+									"host": [
+										"{{host}}"
+									],
+									"path": [
+										"termVersion",
+										"findById"
+									],
+									"query": [
+										{
+											"key": "version_id",
+											"value": "1001"
+										}
+									]
+								},
+								"description": "## 参数\r\n|键值|类型|说明|例子|\r\n|---|---|---|---|\r\n|version_id|string|id|0bfc511116e7495bb393f902fdea01|\r\n\r\n## 返回\r\n|键值|类型|说明|例子|\r\n|---|---|---|---|\r\n|code|string|0:失败,1:成功|0|\r\n|msg|string|提示文字|成功\r\n|data|object|数据||{version_id:'1001',version_name:'',type_id:'',type_name:'',parent_type_id:'',parent_type_name:'',version:'',memo:''}|\r\n|data[0]|version_id|string|id|\r\n|data[0]|version_name|string|名称|\r\n|data[0]|type_id|string|二级分类id|\r\n|data[0]|type_name|string|二级分类名称|\r\n|data[0]|parent_type_id|string|一级分类id|\r\n|data[0]|parent_type_name|string|一级分类名称|\r\n|data[0]|model_id|string|型号id|\r\n|data[0]|memo|string|更新说明|"
+							},
+							"response": []
+						}
+					],
+					"protocolProfileBehavior": {},
+					"_postman_isSubFolder": true
+				},
+				{
+					"name": "终端信息",
+					"item": [
+						{
+							"name": "列表",
+							"request": {
+								"method": "GET",
+								"header": [
+									{
+										"key": "token",
+										"value": "{{token}}",
+										"type": "text"
+									}
+								],
+								"url": {
+									"raw": "{{host}}/terminal/list?page=1&pageSize=10",
+									"host": [
+										"{{host}}"
+									],
+									"path": [
+										"terminal",
+										"list"
+									],
+									"query": [
+										{
+											"key": "page",
+											"value": "1"
+										},
+										{
+											"key": "pageSize",
+											"value": "10"
+										}
+									]
+								},
+								"description": "## 参数\r\n|键值|类型|说明|例子|\r\n|---|---|---|---|\r\n|page|string|页码|1|\r\n|pageSize|string|每页显示条数|10|\r\n\r\n## 返回\r\n|键值|类型|说明|例子|\r\n|---|---|---|---|\r\n|code|string|0:失败,1:成功|0|\r\n|msg|string|提示文字|成功\r\n|dataCount|string|数据总数|10\r\n|data|array|数据|[{term_id:'1001',term_name:'',type_id:'',type_name:'',parent_type_id:'',parent_type_name:'',model_id:'',model_name:'',version_id:'',version_name:'',memo:''}]|\r\n|data[0]|term_id|int|id|\r\n|data[0]|term_name|string|名称|\r\n|data[0]|type_id|string|二级分类id|\r\n|data[0]|type_name|string|二级分类名称|\r\n|data[0]|parent_type_id|string|一级分类id|\r\n|data[0]|parent_type_name|string|一级分类名称|\r\n|data[0]|model_id|string|型号id|\r\n|data[0]|model_name|string|型号|\r\n|data[0]|version_id|string|版本id|\r\n|data[0]|version_name|string|版本|\r\n|data[0]|memo|string|备注|"
+							},
+							"response": []
+						},
+						{
+							"name": "上级终端下拉框(弃用)",
+							"request": {
+								"method": "GET",
+								"header": [
+									{
+										"key": "token",
+										"type": "text",
+										"value": "{{token}}"
+									}
+								],
+								"url": {
+									"raw": "{{host}}/terminal/getListParentIdAndName",
+									"host": [
+										"{{host}}"
+									],
+									"path": [
+										"terminal",
+										"getListParentIdAndName"
+									]
+								},
+								"description": "## 参数\r\n|键值|类型|说明|例子|\r\n|---|---|---|---|\r\n\r\n## 返回\r\n|键值|类型|说明|例子|\r\n|---|---|---|---|\r\n|code|string|0:失败,1:成功|0|\r\n|msg|string|提示文字|成功\r\n|data|array|数据|[{term_id:'1001',term_name:'12323'}]|\r\n|data[0]|term_id|string|id|\r\n|data[0]|term_name|string|名称|"
+							},
+							"response": []
+						},
+						{
+							"name": "删除",
+							"request": {
+								"method": "POST",
+								"header": [
+									{
+										"key": "Content-Type",
+										"type": "text",
+										"value": "application/json"
+									},
+									{
+										"key": "token",
+										"type": "text",
+										"value": "{{token}}"
+									}
+								],
+								"body": {
+									"mode": "raw",
+									"raw": "{\"term_id\":\"0bfc511116e7495bb393f902fdea01b1\"}",
+									"options": {
+										"raw": {}
+									}
+								},
+								"url": {
+									"raw": "{{host}}/terminal/delete",
+									"host": [
+										"{{host}}"
+									],
+									"path": [
+										"terminal",
+										"delete"
+									]
+								},
+								"description": "## 参数\r\n|键值|类型|说明|例子|\r\n|---|---|---|---|\r\n|term_id|int|id|10012|\r\n\r\n## 返回\r\n|键值|类型|说明|例子|\r\n|---|---|---|---|\r\n|code|string|0:失败,1:成功|0|\r\n|msg|string|提示文字|成功"
+							},
+							"response": []
+						},
+						{
+							"name": "添加",
+							"request": {
+								"method": "POST",
+								"header": [
+									{
+										"key": "Content-Type",
+										"value": "application/json",
+										"type": "text"
+									},
+									{
+										"key": "token",
+										"value": "{{token}}",
+										"type": "text"
+									}
+								],
+								"body": {
+									"mode": "raw",
+									"raw": "{\n\"term_name\":\"测试\",\n\"parent_type_id\":\"1021\",\n\"type_id\":\"1001\",\n\"parent_id\":\"1\",\n\"device_code\":\"123456\",\n\"model_id\":\"101\",\n\"version_id\":\"v_12346\",\n\"term_osinfo\":\"v_12346\",\n\"term_dbinfo\":\"v_12346\",\n\"term_ip\":\"127.0.0.1\",\n\"term_port\":\"8080\",\n\"area_id\":\"101\",\n\"graphy_x\":\"12345678\",\n\"graphy_y\":\"12345678\",\n\"campus_graphy_x\":\"12345678\",\n\"campus_graphy_y\":\"12345678\",\n\"asset_code\":\"12345678\",\n\"production_date\":\"2019-01-01 20:01:20\",\n\"warranty_date\":\"2019-01-01 20:01:20\",\n\"unit_id\":\"12345678\",\n\"psam_code\":\"12345678\",\n\"service_platform\":\"linux\",\n\"memo\":\"123\"\n}",
+									"options": {
+										"raw": {}
+									}
+								},
+								"url": {
+									"raw": "{{host}}/terminal/add",
+									"host": [
+										"{{host}}"
+									],
+									"path": [
+										"terminal",
+										"add"
+									]
+								},
+								"description": "## 参数\r\n|键值|类型|说明|例子|\r\n|---|---|---|---|\r\n|term_name|string|名称|test|\r\n|parent_type_id|string|一级分类||\r\n|type_id|string|二级分类||\r\n|parent_id|int|上级终端|示例如果上级终端是两级的1，2则为2|\r\n|device_code|string|设备编号||\r\n|model_id|string|型号||\r\n|version_id|string|版本||\r\n|term_osinfo|string|操作系统||\r\n|term_dbinfo|string|数据库||\r\n|term_ip|string|IP||\r\n|term_port|string|端口||\r\n|area_id|string|位置||\r\n|graphy_x|string|经度||\r\n|graphy_y|string|纬度||\r\n|campus_graphy_x|string|校园地图经度||\r\n|campus_graphy_y|string|校园地图纬度||\r\n|asset_code|string|资产编号||\r\n|production_date|string|出厂日期||\r\n|warranty_date|string|三包日期||\r\n|unit_id|string|责任单位||\r\n|psam_code|string|psam卡||\r\n|service_platform|string|服务平台||\r\n|parent_ids|array|上级终端层级|[1,2]|\r\n|parent_names|array|上级终端名称|[\"一级\",\"二级\"]|\r\n\r\n\r\n## 返回\r\n|键值|类型|说明|例子|\r\n|---|---|---|---|\r\n|code|string|0:失败,1:成功|0|\r\n|msg|string|提示文字|成功"
+							},
+							"response": []
+						},
+						{
+							"name": "编辑",
+							"request": {
+								"method": "POST",
+								"header": [
+									{
+										"key": "Content-Type",
+										"value": "application/json",
+										"type": "text"
+									},
+									{
+										"key": "token",
+										"value": "{{token}}",
+										"type": "text"
+									}
+								],
+								"body": {
+									"mode": "raw",
+									"raw": "{\n\"term_id\":\"101102\",\n\"term_name\":\"测试\",\n\"parent_type_id\":\"1021\",\n\"type_id\":\"1001\",\n\"parent_id\":\"1\",\n\"device_code\":\"123456\",\n\"model_id\":\"101\",\n\"version_id\":\"v_12346\",\n\"term_osinfo\":\"v_12346\",\n\"term_dbinfo\":\"v_12346\",\n\"term_ip\":\"127.0.0.1\",\n\"term_port\":\"8080\",\n\"area_id\":\"101\",\n\"graphy_x\":\"12345678\",\n\"graphy_y\":\"12345678\",\n\"campus_graphy_x\":\"12345678\",\n\"campus_graphy_y\":\"12345678\",\n\"asset_code\":\"12345678\",\n\"production_date\":\"2019-01-01 20:01:20\",\n\"warranty_date\":\"2019-01-01 20:01:20\",\n\"unit_id\":\"12345678\",\n\"psam_code\":\"12345678\",\n\"service_platform\":\"linux\",\n\"memo\":\"123\"\n}",
+									"options": {
+										"raw": {}
+									}
+								},
+								"url": {
+									"raw": "{{host}}/terminal/edit",
+									"host": [
+										"{{host}}"
+									],
+									"path": [
+										"terminal",
+										"edit"
+									]
+								},
+								"description": "## 参数\r\n|键值|类型|说明|例子|\r\n|---|---|---|---|\r\n|term_id|int|id||\r\n|term_name|string|名称|test|\r\n|parent_type_id|string|一级分类||\r\n|type_id|string|二级分类||\r\n|parent_id|int|上级终端|示例如果上级终端是两级的1，2则为2|\r\n|device_code|string|设备编号||\r\n|model_id|string|型号||\r\n|version_id|string|版本||\r\n|term_osinfo|string|操作系统||\r\n|term_dbinfo|string|数据库||\r\n|term_ip|string|IP||\r\n|term_port|string|端口||\r\n|area_id|string|位置||\r\n|graphy_x|string|经度||\r\n|graphy_y|string|纬度||\r\n|campus_graphy_x|string|校园地图经度||\r\n|campus_graphy_y|string|校园地图纬度||\r\n|asset_code|string|资产编号||\r\n|production_date|string|出厂日期||\r\n|warranty_date|string|三包日期||\r\n|unit_id|string|责任单位||\r\n|psam_code|string|psam卡||\r\n|service_platform|string|服务平台||\r\n|parent_ids|array|上级终端层级|[1,2]|\r\n|parent_names|array|上级终端名称|[\"一级\",\"二级\"]|\r\n\r\n\r\n## 返回\r\n|键值|类型|说明|例子|\r\n|---|---|---|---|\r\n|code|string|0:失败,1:成功|0|\r\n|msg|string|提示文字|成功"
+							},
+							"response": []
+						},
+						{
+							"name": "编辑按钮",
+							"request": {
+								"method": "GET",
+								"header": [
+									{
+										"key": "token",
+										"type": "text",
+										"value": "{{token}}"
+									}
+								],
+								"url": {
+									"raw": "{{host}}/terminal/findById?term_id=101101",
+									"host": [
+										"{{host}}"
+									],
+									"path": [
+										"terminal",
+										"findById"
+									],
+									"query": [
+										{
+											"key": "term_id",
+											"value": "101101"
+										}
+									]
+								},
+								"description": "## 参数\r\n|键值|类型|说明|例子|\r\n|---|---|---|---|\r\n|version_id|string|id|0bfc511116e7495bb393f902fdea01|\r\n\r\n## 返回\r\n|键值|类型|说明|例子|\r\n|---|---|---|---|\r\n|code|string|0:失败,1:成功|0|\r\n|msg|string|提示文字|成功\r\n|data|object|数据||{}|\r\n\r\n|data[0]|term_id|int|id||\r\n|data[0]|term_name|string|名称|test|\r\n|data[0]|parent_type_id|string|一级分类||\r\n|data[0]|parent_type_name|string|一级分类名称||\r\n|data[0]|type_id|string|二级分类||\r\n|data[0]|type_name|string|二级分类名称||\r\n|data[0]|parent_id|int|上级终端||\r\n|data[0]|device_code|string|设备编号||\r\n|data[0]|model_id|string|型号||\r\n|data[0]|version_id|string|版本||\r\n|data[0]|term_osinfo|string|操作系统||\r\n|data[0]|term_dbinfo|string|数据库||\r\n|data[0]|term_ip|string|IP||\r\n|data[0]|term_port|string|端口||\r\n|data[0]|area_id|string|位置||\r\n|data[0]|area_name|string|位置名称||\r\n|data[0]|graphy_x|string|经度||\r\n|data[0]|graphy_y|string|纬度||\r\n|data[0]|campus_graphy_x|string|校园地图经度||\r\n|data[0]|campus_graphy_y|string|校园地图纬度||\r\n|data[0]|asset_code|string|资产编号||\r\n|data[0]|production_date|string|出厂日期||\r\n|data[0]|warranty_date|string|三包日期||\r\n|data[0]|unit_id|string|责任单位||\r\n|data[0]|unit_name|string|责任单位名称||\r\n|data[0]|psam_code|string|psam卡||\r\n|data[0]|service_platform|string|服务平台||\r\n|data[0]|run_status|string|运行状态||\r\n|data[0]|is_online|string|是否在线||\r\n|data[0]|update_date|string|更新时间||\r\n|data[0]|status_update_date|string|状态更新时间||\r\n|data[0]|memo|string|备注|"
+							},
+							"response": []
+						},
+						{
+							"name": "上级终端下拉框",
+							"request": {
+								"method": "GET",
+								"header": [
+									{
+										"key": "token",
+										"type": "text",
+										"value": "{{token}}"
+									}
+								],
+								"url": {
+									"raw": "{{host}}/terminal/getListSubIdAndName?term_id=101112",
+									"host": [
+										"{{host}}"
+									],
+									"path": [
+										"terminal",
+										"getListSubIdAndName"
+									],
+									"query": [
+										{
+											"key": "term_id",
+											"value": "101112"
+										}
+									]
+								},
+								"description": "## 参数\r\n|键值|类型|说明|例子|\r\n|---|---|---|---|\r\n|term_id|int|终端id|1001|\r\n\r\n## 返回\r\n|键值|类型|说明|例子|\r\n|---|---|---|---|\r\n|code|string|0:失败,1:成功|0|\r\n|msg|string|提示文字|成功\r\n|data|array|数据|[{term_id:'1001',term_name:'12323'}]|\r\n|data[0]|term_id|string|id|\r\n|data[0]|term_name|string|名称|"
+							},
+							"response": []
+						}
+					],
+					"protocolProfileBehavior": {},
+					"_postman_isSubFolder": true
+				}
+			],
+			"protocolProfileBehavior": {}
+		},
+		{
+			"name": "数据中心",
+			"item": [
+				{
+					"name": "免责声明",
+					"item": [
+						{
+							"name": "列表",
+							"request": {
+								"method": "GET",
+								"header": [
+									{
+										"key": "token",
+										"value": "{{token}}",
+										"type": "text"
+									}
+								],
+								"url": {
+									"raw": "{{host}}/declare/findById?declare_id=1002",
+									"host": [
+										"{{host}}"
+									],
+									"path": [
+										"declare",
+										"findById"
+									],
+									"query": [
+										{
+											"key": "declare_id",
+											"value": "1002"
+										}
+									]
+								},
+								"description": "## 参数\r\n|键值|类型|说明|例子|\r\n|---|---|---|---|\r\n|declare_id|string|id|1001|\r\n\r\n\r\n## 返回\r\n|键值|类型|说明|例子|\r\n|---|---|---|---|\r\n|code|string|0:失败,1:成功|0|\r\n|msg|string|提示文字|成功\r\n|data|object|数据|{declare_id:'1001',declare_content:'等等等',declare_value:'true',declare_date:'2020-02-10 09:07:28'}|\r\n|data[0]|declare_id|string|id|\r\n|data[0]|declare_content|string|内容|\r\n|data[0]|declare_value|boolean|是否同意声明|\r\n|data[0]|declare_date|string|变更日期|"
+							},
+							"response": []
+						},
+						{
+							"name": "保存",
+							"request": {
+								"method": "POST",
+								"header": [
+									{
+										"key": "Content-Type",
+										"type": "text",
+										"value": "application/json"
+									},
+									{
+										"key": "token",
+										"type": "text",
+										"value": "{{token}}"
+									}
+								],
+								"body": {
+									"mode": "raw",
+									"raw": "{\"declare_id\":\"1001\",\"declare_value\":true}",
+									"options": {
+										"raw": {}
+									}
+								},
+								"url": {
+									"raw": "{{ip}}/api/datacenter/declare/edit?declare_id=1001&declare_value=true",
+									"host": [
+										"{{ip}}"
+									],
+									"path": [
+										"api",
+										"datacenter",
+										"declare",
+										"edit"
+									],
+									"query": [
+										{
+											"key": "declare_id",
+											"value": "1001"
+										},
+										{
+											"key": "declare_value",
+											"value": "true"
+										}
+									]
+								},
+								"description": "## 参数\r\n|键值|类型|说明|例子|\r\n|---|---|---|---|\r\n|declare_id|string|id|1001|\r\n|declare_value|string|是否同意条款|true|\r\n\r\n## 返回\r\n|键值|类型|说明|例子|\r\n|---|---|---|---|\r\n|code|string|0:失败,1:成功|0|\r\n|msg|string|提示文字|成功"
+							},
+							"response": []
+						}
+					],
+					"protocolProfileBehavior": {},
+					"_postman_isSubFolder": true
+				},
+				{
+					"name": "协议条款",
+					"item": [
+						{
+							"name": "列表",
+							"request": {
+								"method": "GET",
+								"header": [
+									{
+										"key": "token",
+										"value": "{{token}}",
+										"type": "text"
+									}
+								],
+								"url": {
+									"raw": "{{host}}/declare/findById?declare_id=1002",
+									"host": [
+										"{{host}}"
+									],
+									"path": [
+										"declare",
+										"findById"
+									],
+									"query": [
+										{
+											"key": "declare_id",
+											"value": "1002"
+										}
+									]
+								},
+								"description": "## 参数\r\n|键值|类型|说明|例子|\r\n|---|---|---|---|\r\n|declare_id|string|id|1002|\r\n\r\n\r\n## 返回\r\n|键值|类型|说明|例子|\r\n|---|---|---|---|\r\n|code|string|0:失败,1:成功|0|\r\n|msg|string|提示文字|成功\r\n|data|object|数据|{declare_id:'1002',declare_content:'等等等',declare_value:'true',declare_date:'2020-02-10 09:07:28'}|\r\n|data[0]|declare_id|string|id|\r\n|data[0]|declare_content|string|内容|\r\n|data[0]|declare_value|boolean|是否同意协议条款|\r\n|data[0]|declare_date|string|变更日期|"
+							},
+							"response": []
+						},
+						{
+							"name": "保存",
+							"request": {
+								"method": "POST",
+								"header": [
+									{
+										"key": "Content-Type",
+										"value": "application/json",
+										"type": "text"
+									},
+									{
+										"key": "token",
+										"value": "{{token}}",
+										"type": "text"
+									}
+								],
+								"body": {
+									"mode": "raw",
+									"raw": "{\"declare_id\":\"1002\",\"declare_value\":false}",
+									"options": {
+										"raw": {}
+									}
+								},
+								"url": {
+									"raw": "{{host}}/declare/edit",
+									"host": [
+										"{{host}}"
+									],
+									"path": [
+										"declare",
+										"edit"
+									]
+								},
+								"description": "## 参数\r\n|键值|类型|说明|例子|\r\n|---|---|---|---|\r\n|declare_id|string|id|1002|\r\n|declare_value|string|是否同意条款|true|\r\n\r\n## 返回\r\n|键值|类型|说明|例子|\r\n|---|---|---|---|\r\n|code|string|0:失败,1:成功|0|\r\n|msg|string|提示文字|成功"
+							},
+							"response": []
+						}
+					],
+					"protocolProfileBehavior": {},
+					"_postman_isSubFolder": true
+				},
+				{
+					"name": "信息项设置",
+					"item": [
+						{
+							"name": "列表",
+							"request": {
+								"method": "GET",
+								"header": [
+									{
+										"key": "token",
+										"value": "{{token}}",
+										"type": "text"
+									}
+								],
+								"url": {
+									"raw": "{{host}}/information/list",
+									"host": [
+										"{{host}}"
+									],
+									"path": [
+										"information",
+										"list"
+									]
+								},
+								"description": "## 参数\r\n|键值|类型|说明|例子|\r\n|---|---|---|---|\r\n\r\n\r\n## 返回\r\n|键值|类型|说明|例子|\r\n|---|---|---|---|\r\n|code|string|0:失败,1:成功|0|\r\n|msg|string|提示文字|成功\r\n|data|array|数据|[{information_id:'1001',information_name:'位置信息',information_value:'true',information_date:''}]|\r\n|data[0]|information_id|string|id|\r\n|data[0]|information_name|string|名称|\r\n|data[0]|information_value|boolean|是否同意|\r\n|data[0]|information_date|string|修改日期|\r\n\r\n"
+							},
+							"response": []
+						},
+						{
+							"name": "保存",
+							"request": {
+								"method": "POST",
+								"header": [
+									{
+										"key": "Content-Type",
+										"name": "Content-Type",
+										"value": "application/json",
+										"type": "text"
+									},
+									{
+										"key": "token",
+										"value": "{{token}}",
+										"type": "text"
+									}
+								],
+								"body": {
+									"mode": "raw",
+									"raw": "[\n{\"information_id\":\"1001\",\"information_name\":\"位置信息\",\"information_value\":true},\n{\"information_id\":\"1002\",\"information_name\":\"状态信息\",\"information_value\":false},\n{\"information_id\":\"1003\",\"information_name\":\"性能信息\",\"information_value\":true},\n{\"information_id\":\"1004\",\"information_name\":\"体检信息\",\"information_value\":false},\n{\"information_id\":\"1005\",\"information_name\":\"业务信息\",\"information_value\":false}\n]",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "{{host}}/information/edit",
+									"host": [
+										"{{host}}"
+									],
+									"path": [
+										"information",
+										"edit"
+									]
+								},
+								"description": "## 参数\r\n|键值|类型|说明|例子|\r\n|---|---|---|---|\r\n|data|array|数据|[{information_id:'1001',information_name:'位置信息',information_value:'true'}]|\r\n|data[0]|information_id|string|id|\r\n|data[0]|information_name|string|名称|\r\n|data[0]|information_value|boolean|是否同意|\r\n\r\n## 返回\r\n|键值|类型|说明|例子|\r\n|---|---|---|---|\r\n|code|string|0:失败,1:成功|0|\r\n|msg|string|提示文字|成功"
+							},
+							"response": []
+						}
+					],
+					"protocolProfileBehavior": {},
+					"_postman_isSubFolder": true
+				},
+				{
+					"name": "操作记录",
+					"item": [
+						{
+							"name": "列表",
+							"request": {
+								"method": "GET",
+								"header": [
+									{
+										"key": "token",
+										"value": "{{token}}",
+										"type": "text"
+									}
+								],
+								"url": {
+									"raw": "{{host}}/operation/list?page=1&pageSize=10",
+									"host": [
+										"{{host}}"
+									],
+									"path": [
+										"operation",
+										"list"
+									],
+									"query": [
+										{
+											"key": "page",
+											"value": "1"
+										},
+										{
+											"key": "pageSize",
+											"value": "10"
+										}
+									]
+								},
+								"description": "## 参数\r\n|键值|类型|说明|例子|\r\n|---|---|---|---|\r\n|page|string|页码|1|\r\n|pageSize|string|每页显示条数|10|\r\n\r\n## 返回\r\n|键值|类型|说明|例子|\r\n|---|---|---|---|\r\n|code|string|0:失败,1:成功|0|\r\n|msg|string|提示文字|成功\r\n|dataCount|string|数据总数|10\r\n|data|array|数据|[{operation_id:'048ad1939998453da01e2b555f74f8f9',operator:'5af0f0f8245e47d3afdc2bd5696fa0c9',operator_name:'admin',operation_date:'2020-02-10 09:49:21',memo:'同意授权：位置信息，性能信息  取消授权：状态信息，体检信息，业务信息'}]|\r\n|data[0]|operation_id|String|id|\r\n|data[0]|operator|String|操作人id|\r\n|data[0]|operator_name|String|操作人名称|\r\n|data[0]|operation_date|String|操作日期|\r\n|data[0]|memo|String|操作内容|"
+							},
+							"response": []
+						}
+					],
+					"protocolProfileBehavior": {},
+					"_postman_isSubFolder": true
+				},
+				{
+					"name": "请求记录",
+					"item": [
+						{
+							"name": "列表",
+							"request": {
+								"method": "GET",
+								"header": [
+									{
+										"key": "token",
+										"value": "{{token}}",
+										"type": "text"
+									}
+								],
+								"url": {
+									"raw": "{{host}}/request/list?page=1&pageSize=10",
+									"host": [
+										"{{host}}"
+									],
+									"path": [
+										"request",
+										"list"
+									],
+									"query": [
+										{
+											"key": "page",
+											"value": "1"
+										},
+										{
+											"key": "pageSize",
+											"value": "10"
+										}
+									]
+								},
+								"description": "## 参数\r\n|键值|类型|说明|例子|\r\n|---|---|---|---|\r\n|page|string|页码|1|\r\n|pageSize|string|每页显示条数|10|\r\n\r\n## 返回\r\n|键值|类型|说明|例子|\r\n|---|---|---|---|\r\n|code|string|0:失败,1:成功|0|\r\n|msg|string|提示文字|成功\r\n|dataCount|string|数据总数|10\r\n|data|array|数据|[{request_id:'',duration:'',result:'',description:'',result_description:'',request_date:'2020-02-10 09:49:21',memo:''}]|\r\n|data[0]|request_id|String|id|\r\n|data[0]|duration|String|请求时长|\r\n|data[0]|request_date|String|请求日期|\r\n|data[0]|result|boolean|请求结果----不用展示|\r\n|data[0]|description|String|描述----不用展示|\r\n|data[0]|result_description|String|请求结果|\r\n|data[0]|memo|String|请求内容|"
+							},
+							"response": []
+						}
+					],
+					"protocolProfileBehavior": {},
+					"_postman_isSubFolder": true
+				}
+			],
+			"protocolProfileBehavior": {}
+		},
+		{
+			"name": "首页信息",
+			"item": [
+				{
+					"name": "登录信息",
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true
+					},
+					"request": {
+						"method": "GET",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\"code\":1,\"data\":{\"login_name\":\"admin\",\"login_password\":\"e10adc3949ba59abbe56e057f20f883e\",\"user_id\":\"aseds34dhgjskhs45d6e21wsfde1\",\"user_name\":\"系统管理员\",\"last_login_ip\":\"10.9.25.19\",\"last_login_date\":\"2020-01-11 18:10:08\",\"status\":\"1\"}}",
+							"options": {
+								"raw": {}
+							}
+						},
+						"url": {
+							"raw": "/api/home/loginInfo?token=aseds34dhgjskhs45d6e21wsfde1/api/home/loginInfo?id=aseds34dhgjskhs45d6e21wsfde1",
+							"path": [
+								"api",
+								"home",
+								"loginInfo"
+							],
+							"query": [
+								{
+									"key": "token",
+									"value": "aseds34dhgjskhs45d6e21wsfde1/api/home/loginInfo?id=aseds34dhgjskhs45d6e21wsfde1"
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "快捷入口信息",
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true
+					},
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "token",
+								"value": "{{token}}",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\"code\":1,\"data\":[{\"quick_url\":\"/home\",\"quick_name\":\"主机视图\"},{\"quick_url\":\"/home/sds\",\"quick_name\":\"数据库视图\"}]}",
+							"options": {
+								"raw": {}
+							}
+						},
+						"url": {
+							"raw": "{{host}}/home/listquick?token=eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJwYXNzd29yZCI6IjEyMzQ1NiIsImV4cCI6MTU4NTEwOTI2MCwidXNlcm5hbWUiOiJ0ZXN0In0.MfEwvHc9os7brl_QA7QkkJht0VCUDNC-M7uw0jVnaMs",
+							"host": [
+								"{{host}}"
+							],
+							"path": [
+								"home",
+								"listquick"
+							],
+							"query": [
+								{
+									"key": "token",
+									"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJwYXNzd29yZCI6IjEyMzQ1NiIsImV4cCI6MTU4NTEwOTI2MCwidXNlcm5hbWUiOiJ0ZXN0In0.MfEwvHc9os7brl_QA7QkkJht0VCUDNC-M7uw0jVnaMs",
+									"description": "用户ID"
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "运行状态统计",
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true
+					},
+					"request": {
+						"method": "GET",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\"code\":1,\"data\":[{\"sum\":50,\"status\":1},{\"sum\":0,\"status\":2},{\"sum\":0,\"status\":3},{\"sum\":0,\"status\":4},{\"sum\":1,\"status\":5},{\"sum\":7,\"status\":6}]}",
+							"options": {
+								"raw": {}
+							}
+						},
+						"url": {
+							"raw": "/api/home/terminalstatus",
+							"path": [
+								"api",
+								"home",
+								"terminalstatus"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "七天异常状态统计",
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true
+					},
+					"request": {
+						"method": "GET",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\"code\":1,\"data\":[{\"days\":\"2020-02-04\",\"sum\":1},{\"days\":\"2020-02-03\",\"sum\":6},{\"days\":\"2020-02-02\",\"sum\":2},{\"days\":\"2020-01-23\",\"sum\":22},{\"days\":\"2020-01-22\",\"sum\":56},{\"days\":\"2020-01-21\",\"sum\":40},{\"days\":\"2020-01-20\",\"sum\":32}]}",
+							"options": {
+								"raw": {}
+							}
+						},
+						"url": {
+							"raw": "/api/home/abnormalstatus",
+							"path": [
+								"api",
+								"home",
+								"abnormalstatus"
+							]
+						},
+						"description": "Code\r\n\tString\t返回代码\r\ndata\r\n\tJSONArray\r\n\t返回数据\r\n\r\ndays\tString\t时间\r\nsum\tString\t异常数量"
+					},
+					"response": []
+				},
+				{
+					"name": "当前告警",
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true
+					},
+					"request": {
+						"method": "GET",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\"code\":1,\"data\":[{\"description\":\"【jz4-17】 发生事件 【1007-内存使用率超过90%】 发起告警\",\"create_date\":\"2020-02-06 20:10:35.0\"},{\"description\":\"【gateway-datasql-45】 发生事件 【1007-内存使用率超过90%】 发起告警\",\"create_date\":\"2020-02-06 20:10:41.0\"},{\"description\":\"【gateway-44】 发生事件 【1007-内存使用率超过90%】 发起告警\",\"create_date\":\"2020-02-06 20:10:41.0\"},{\"description\":\"【jz4-oracle-18】 发生事件 【1007-内存使用率超过90%】 发起告警\",\"create_date\":\"2020-02-06 20:10:35.0\"},{\"description\":\"【gateway-end-softgateway-47】 发生事件 【1007-内存使用率超过90%】 发起告警\",\"create_date\":\"2020-02-06 20:10:42.0\"}]}",
+							"options": {
+								"raw": {}
+							}
+						},
+						"url": {
+							"raw": "/api/home/alarm",
+							"path": [
+								"api",
+								"home",
+								"alarm"
+							]
+						},
+						"description": "Code\r\n\tString\t返回代码\r\ndata\r\n\tJSONArray\r\n\t返回数据\r\n\r\ncreate_date\tString\t时间\r\ndescription\tString\t描述"
+					},
+					"response": []
+				},
+				{
+					"name": "按天查看异常数量",
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true
+					},
+					"request": {
+						"method": "GET",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\"code\":1,\"data\":[{\"name\":\"abnormal\",\"sum\":31}]}",
+							"options": {
+								"raw": {}
+							}
+						},
+						"url": {
+							"raw": "/api/home/findbyday?year=2020&month=1&day=20",
+							"path": [
+								"api",
+								"home",
+								"findbyday"
+							],
+							"query": [
+								{
+									"key": "year",
+									"value": "2020",
+									"description": "年"
+								},
+								{
+									"key": "month",
+									"value": "1",
+									"description": "月"
+								},
+								{
+									"key": "day",
+									"value": "20",
+									"description": "日"
+								}
+							]
+						},
+						"description": "Code\r\n\tString\t返回代码\r\ndata\r\n\tJSONArray\r\n\t返回数据\r\n\r\nname\tString\t名称\r\nsum\tString\t数量"
+					},
+					"response": []
+				},
+				{
+					"name": "快捷项目显示接口",
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "token",
+								"value": "{{token}}",
+								"type": "text"
+							}
+						],
+						"url": {
+							"raw": "{{host}}/home/quicklist",
+							"host": [
+								"{{host}}"
+							],
+							"path": [
+								"home",
+								"quicklist"
+							]
+						}
+					},
+					"response": []
+				}
+			],
+			"protocolProfileBehavior": {}
+		},
+		{
+			"name": "监控中心",
+			"item": [
+				{
+					"name": "监控记录",
+					"item": [
+						{
+							"name": "列表",
+							"request": {
+								"method": "GET",
+								"header": [
+									{
+										"key": "token",
+										"type": "text",
+										"value": "{{token}}"
+									}
+								],
+								"url": {
+									"raw": "{{host}}/monitorLog/list?page=1&pageSize=10",
+									"host": [
+										"{{host}}"
+									],
+									"path": [
+										"monitorLog",
+										"list"
+									],
+									"query": [
+										{
+											"key": "page",
+											"value": "1"
+										},
+										{
+											"key": "pageSize",
+											"value": "10"
+										}
+									]
+								},
+								"description": "## 参数\r\n|键值|类型|说明|例子|\r\n|---|---|---|---|\r\n|page|string|页码|1|\r\n|pageSize|string|每页显示条数|10|\r\n|create_date|string|检索条件：创建时间|2020-01-01|\r\n|parent_type_id|string|检索条件：上级分类||\r\n|type_id|string|检索条件终端分类||\r\n|keywords|string|检索条件：终端编号/终端名称||\r\n\r\n\r\n\r\n## 返回\r\n|键值|类型|说明|例子|\r\n|---|---|---|---|\r\n|code|string|0:失败,1:成功|0|\r\n|msg|string|提示文字|成功\r\n|data|array|数据|[{\r\n\"monlogid\": \"b9ebb552d115494692cb15ab9094e14c\",\r\n\"termid\": \"101151\",\r\n\"term_name\": \"物联网-test16\",\r\n\"event_id\": \"9020\",\r\n\"event_name\": \"内存使用率过高\",\r\n\"oldrunstate\": \"6\",\r\n\"oldrunstate_name\": \"严重异常\",\r\n\"nowrunstate\": \"1\",\r\n\"nowrunstate_name\": \"正常\",\r\n\"infocode\": \"c4c33d44508348948c99bf04ef559a99\",\r\n\"statusupdatetime\": \"2020-04-01 15:30:37\",\r\n\"memo\": \"主机视图\"\r\n}]|\r\n|data[0]|monlogid|string|id----不用展示|\r\n|data[0]|statusupdatetime|string|创建时间|\r\n|data[0]|termid|string|终端编号|\r\n|data[0]|term_name|string|终端名称|\r\n|data[0]|term_name|string|终端名称|\r\n|data[0]|type_name|string|终端分类|\r\n|data[0]|parent_type_name|string|上级分类|\r\n|data[0]|oldrunstate_name|string|原状态|\r\n|data[0]|nowrunstate_name|string|现状态|\r\n|data[0]|event_id|string|事件编号|\r\n|data[0]|event_name|string|事件名称|\r\n|data[0]|event_log_status|string|事件状态|\r\n|data[0]|memo|string|备注|\r\n"
+							},
+							"response": []
+						}
+					],
+					"protocolProfileBehavior": {},
+					"_postman_isSubFolder": true
+				},
+				{
+					"name": "拓扑图状态",
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true
+					},
+					"request": {
+						"method": "GET",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\"code\":1,\"data\":[{\"type\":\"1\",\"sum\":\"6\"},{\"type\":\"2\",\"sum\":\"0\"},{\"type\":\"3\",\"sum\":\"0\"},{\"type\":\"4\",\"sum\":\"0\"},{\"type\":\"5\",\"sum\":\"0\"},{\"type\":\"6\",\"sum\":\"1\"},{\"type\":\"7\",\"sum\":\"9\"},{\"type\":\"8\",\"sum\":\"10\"}]}",
+							"options": {
+								"raw": {}
+							}
+						},
+						"url": {
+							"raw": "/api/topol/topol_status",
+							"path": [
+								"api",
+								"topol",
+								"topol_status"
+							]
+						},
+						"description": "Code\r\n\tString\t返回代码\r\ndata\r\n\tJSONArray\r\n\t返回数据\r\n\r\ntype\tString\t类别\r\nsum\tString\t数量"
+					},
+					"response": []
+				},
+				{
+					"name": "拓扑图三级列表",
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true
+					},
+					"request": {
+						"method": "GET",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\"code\":1,\"data\":[{\"topol_id\":\"4\",\"topol_name\":\"圈存子系统\"},{\"topol_id\":\"5\",\"topol_name\":\"一线现金充值机子系统\"},{\"topol_id\":\"6\",\"topol_name\":\"多媒体POS\"},{\"topol_id\":\"7\",\"topol_name\":\"烟台威尔门禁\"},{\"topol_id\":\"8\",\"topol_name\":\"教务考勤应用系统V3.0\"}]}",
+							"options": {
+								"raw": {}
+							}
+						},
+						"url": {
+							"raw": "/api/topol/topol_list_3",
+							"path": [
+								"api",
+								"topol",
+								"topol_list_3"
+							]
+						},
+						"description": "Code\r\n\tString\t返回代码\r\ndata\r\n\tJSONArray\r\n\t返回数据\r\n\r\ntopol_id\tString\t图谱ID\r\ntopol_name\tString\t名称"
+					},
+					"response": []
+				},
+				{
+					"name": "拓扑展示内容",
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true
+					},
+					"request": {
+						"method": "GET",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\"code\":1,\"data\":{\"children\":[{\"children\":[{\"children\":[{\"children\":[],\"name\":\"iot-test5\",\"id\":\"1\",\"parentId\":\"100301\",\"status\":\"5\"},{\"children\":[],\"name\":\"iot-test6\",\"id\":\"10\",\"parentId\":\"100301\",\"status\":\"1\"}],\"name\":\"圈存子系统\",\"id\":\"100301\",\"parentId\":\"100201\",\"status\":\"2\"},{\"children\":[{\"children\":[],\"name\":\"xy-k8s-noder-1\",\"id\":\"100\",\"parentId\":\"100302\",\"status\":\"3\"},{\"children\":[],\"name\":\"prometheus\",\"id\":\"1001\",\"parentId\":\"100302\",\"status\":\"1\"}],\"name\":\"一线现金充值机子系统\",\"id\":\"100302\",\"parentId\":\"100201\",\"status\":\"3\"}],\"name\":\"综合业务平台\",\"id\":\"100201\",\"parentId\":\"0\",\"status\":\"1\"},{\"children\":[{\"children\":[{\"children\":[],\"name\":\"xy-k8s-noder-2\",\"id\":\"101\",\"parentId\":\"100303\",\"status\":\"3\"},{\"children\":[],\"name\":\"iot-test7\",\"id\":\"11\",\"parentId\":\"100303\",\"status\":\"1\"}],\"name\":\"多媒体pos\",\"id\":\"100303\",\"parentId\":\"100202\",\"status\":\"4\"},{\"children\":[{\"children\":[],\"name\":\"iot-test8\",\"id\":\"12\",\"parentId\":\"100304\",\"status\":\"1\"},{\"children\":[],\"name\":\"iot-test9\",\"id\":\"13\",\"parentId\":\"100304\",\"status\":\"1\"}],\"name\":\"烟台威尔门禁\",\"id\":\"100304\",\"parentId\":\"100202\",\"status\":\"4\"}],\"name\":\"能力开放平台\",\"id\":\"100202\",\"parentId\":\"0\",\"status\":\"1\"}],\"name\":\"新一代一卡通\"}}",
+							"options": {
+								"raw": {}
+							}
+						},
+						"url": {
+							"raw": "api/topol/topol_chart",
+							"host": [
+								"api"
+							],
+							"path": [
+								"topol",
+								"topol_chart"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "设备视图列表",
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "token",
+								"value": "{{token}}",
+								"type": "text"
+							}
+						],
+						"url": {
+							"raw": "http://localhost:8080/terminal/viewlist?type_id=1001&pageSize=10&page=1",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"terminal",
+								"viewlist"
+							],
+							"query": [
+								{
+									"key": "type_id",
+									"value": "1001"
+								},
+								{
+									"key": "pageSize",
+									"value": "10"
+								},
+								{
+									"key": "page",
+									"value": "1"
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "设备列表按类型筛选",
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "token",
+								"value": "{{token}}",
+								"type": "text"
+							}
+						],
+						"url": {
+							"raw": "{{host}}/prom_DB/showTeminal?page=1&pageSize=10&type_id=020102&parent_type_id=&run_status=",
+							"host": [
+								"{{host}}"
+							],
+							"path": [
+								"prom_DB",
+								"showTeminal"
+							],
+							"query": [
+								{
+									"key": "page",
+									"value": "1"
+								},
+								{
+									"key": "pageSize",
+									"value": "10"
+								},
+								{
+									"key": "type_id",
+									"value": "020102"
+								},
+								{
+									"key": "parent_type_id",
+									"value": ""
+								},
+								{
+									"key": "run_status",
+									"value": ""
+								}
+							]
+						},
+						"description": "|键值|数据类型|说明|举例|\r\n|-|-|-|-|\r\n|pterm_name|`String`|上级终端名||,\r\n|term_name|`String`|设备名称||,\r\n|alarm|`String`|告警状态|正常  告警|,\r\n|term_id|`String`|设备Id||,\r\n|runStatus|`String`|设备状态|正常 1 ， 签退 2 ， 一般异常 5，  严重异常 6， 离线 4 ， 未知 3|,\r\n||``|||"
+					},
+					"response": []
+				}
+			],
+			"protocolProfileBehavior": {}
+		},
+		{
+			"name": "告警中心",
+			"item": [
+				{
+					"name": "告警视图-列表视图",
+					"item": [
+						{
+							"name": "列表",
+							"request": {
+								"method": "GET",
+								"header": [
+									{
+										"key": "token",
+										"type": "text",
+										"value": "{{token}}"
+									}
+								],
+								"url": {
+									"raw": "{{host}}/alarmCenter/listAlarming?page=1&pageSize=10&start_date=2020-04-03&end_date=2020-04-03",
+									"host": [
+										"{{host}}"
+									],
+									"path": [
+										"alarmCenter",
+										"listAlarming"
+									],
+									"query": [
+										{
+											"key": "page",
+											"value": "1"
+										},
+										{
+											"key": "pageSize",
+											"value": "10"
+										},
+										{
+											"key": "start_date",
+											"value": "2020-04-03"
+										},
+										{
+											"key": "end_date",
+											"value": "2020-04-03"
+										}
+									]
+								},
+								"description": "## 参数\r\n|键值|类型|说明|例子|\r\n|---|---|---|---|\r\n|page|string|页码|1|\r\n|pageSize|string|每页显示条数|10|\r\n\r\n## 返回\r\n|键值|类型|说明|例子|\r\n|---|---|---|---|\r\n|code|string|0:失败,1:成功|0|\r\n|msg|string|提示文字|成功\r\n|data|array|数据|[{\r\n\"type_name\": \"主机\",\r\n\"term_name\": \"测试\",\r\n\"alarm_content\": \"告警测试1\",\r\n\"type_id\": \"1001\",\r\n\"alarm_date\": \"2020-02-28 15:25:34\",\r\n\"alarm_type_name\": \"短信，邮箱，微信\",\r\n\"term_id\": 101101,\r\n\"alarm_id\": \"7a9cb08843bf417f874f8748eccfb3c6\",\r\n\"alarm_center_id\": \"1001\"\r\n}]|\r\n|data[0]|alarm_center_id|string|id|\r\n|data[0]|term_id|int|终端id|\r\n|data[0]|term_name|string|终端名称|\r\n|data[0]|term_id|int|终端类型id|\r\n|data[0]|type_name|string|终端类型名称|\r\n|data[0]|alarm_id|string|规则id|\r\n|data[0]|alarm_content|string|告警内容|\r\n|data[0]|alarm_type_name|string|告警方式|\r\n|data[0]|alarm_date|string|告警日期|"
+							},
+							"response": []
+						},
+						{
+							"name": "查看-基本信息",
+							"request": {
+								"method": "GET",
+								"header": [
+									{
+										"key": "token",
+										"type": "text",
+										"value": "{{token}}"
+									}
+								],
+								"url": {
+									"raw": "{{host}}/alarmCenter/findById?alarm_center_id=1001",
+									"host": [
+										"{{host}}"
+									],
+									"path": [
+										"alarmCenter",
+										"findById"
+									],
+									"query": [
+										{
+											"key": "alarm_center_id",
+											"value": "1001"
+										}
+									]
+								},
+								"description": "## 参数\r\n|键值|类型|说明|例子|\r\n|---|---|---|---|\r\n|alarm_center_id|string|id|1001|\r\n\r\n## 返回\r\n|键值|类型|说明|例子|\r\n|---|---|---|---|\r\n|code|string|0:失败,1:成功|0|\r\n|msg|string|提示文字|成功\r\n|data|object|数据|{\r\n\"alarm_name\": \"告警测试1\",\r\n\"contact_name\": \"zhang,test\",\r\n\"alarm_date\": \"2020-02-28 15:25:34\",\r\n\"alarm_type_name\": \"短信，邮箱，微信\",\r\n\"term_id\": 101101,\r\n\"contact_id\": \"[\\\"1\\\", \\\"2\\\"]\",\r\n\"alarm_upgrade\": true,\r\n\"term_name\": \"测试\",\r\n\"event_id\": \"1009\",\r\n\"alarm_content\": \"告警测试1\",\r\n\"upgrade_contact_name\": \"zhang\",\r\n\"alarm_status\": 1,\r\n\"upgrade_contact_id\": \"[\\\"1\\\"]\",\r\n\"alarm_id\": \"7a9cb08843bf417f874f8748eccfb3c6\",\r\n\"alarm_current_count\": 1,\r\n\"alarm_center_id\": \"1001\",\r\n\"alarm_relieve\": 0\r\n}|\r\n|data[0]|alarm_center_id|string|id|\r\n|data[0]|term_id|int|终端id|\r\n|data[0]|term_name|string|终端名称\r\n|data[0]|area_name|string|位置|\r\n|data[0]|event_id|string|事件id|\r\n|data[0]|alarm_id|string|告警规则id|\r\n|data[0]|alarm_name|string|告警规则名称|\r\n|data[0]|alarm_date|string|告警日期|\r\n|data[0]|alarm_duration|int|告警持续时间|\r\n|data[0]|alarm_notice_count|int|通知次数|\r\n|data[0]|alarm_content|string|告警内容|\r\n|data[0]|alarm_type_name|string|告警方式|\r\n|data[0]|contact_name|string|通知接收人|\r\n|data[0]|alarm_upgrade|boolean|是否升级|\r\n|data[0]|upgrade_contact_name|string|升级通知接收人|\r\n|data[0]|alarm_end_date|string|告警解除日期|"
+							},
+							"response": []
+						},
+						{
+							"name": "通知记录",
+							"request": {
+								"method": "GET",
+								"header": [
+									{
+										"key": "token",
+										"type": "text",
+										"value": "{{token}}"
+									}
+								],
+								"url": {
+									"raw": "{{host}}/alarmLog/listAll?alarm_center_id=1001",
+									"host": [
+										"{{host}}"
+									],
+									"path": [
+										"alarmLog",
+										"listAll"
+									],
+									"query": [
+										{
+											"key": "alarm_center_id",
+											"value": "1001"
+										},
+										{
+											"key": "pageSize",
+											"value": "10",
+											"disabled": true
+										}
+									]
+								},
+								"description": "## 参数\r\n|键值|类型|说明|例子|\r\n|---|---|---|---|\r\n|alarm_center_id|string|告警中心id|1001|\r\n\r\n\r\n## 返回\r\n|键值|类型|说明|例子|\r\n|---|---|---|---|\r\n|code|string|0:失败,1:成功|0|\r\n|msg|string|提示文字|成功\r\n|data|array|数据|[{\"log_id\": \"100101\",\r\n\"alarm_date\": \"2020-02-28 15:28:51\",\r\n\"alarm_content\": \"告警测试\",\r\n\"alarm_type\": \"mobile\",\r\n\"alarm_type_name\": \"短信\",\r\n\"alarm_upgrade\": false,\r\n\"alarm_result\": \"已通知\",\r\n\"alarm_contact\": \"测试1，测试2\",\r\n\"alarm_upgrade_contact\": \"\",\r\n\"alarm_center_id\": \"1001\"\r\n}]|\r\n|data[0]|log_id|string|id|\r\n|data[0]|alarm_date|string|通知时间|\r\n|data[0]|alarm_content|string|通知内容|\r\n|data[0]|alarm_type|string|通知方式英文|\r\n|data[0]|alarm_type_name|string|通知方式名称|\r\n|data[0]|alarm_upgrade|boolean|是否升级：是true  否false|\r\n|data[0]|alarm_result|string|通知结果|\r\n|data[0]|alarm_contact|string|通知接收人|\r\n|data[0]|alarm_upgrade_contact|string|升级通知接收人|"
+							},
+							"response": []
+						}
+					],
+					"protocolProfileBehavior": {},
+					"_postman_isSubFolder": true
+				},
+				{
+					"name": "告警规则",
+					"item": [
+						{
+							"name": "编辑按钮",
+							"request": {
+								"method": "GET",
+								"header": [
+									{
+										"key": "token",
+										"type": "text",
+										"value": "{{token}}"
+									}
+								],
+								"url": {
+									"raw": "{{host}}/alarm/findById?alarm_id=7a9cb08843bf417f874f8748eccfb3c6",
+									"host": [
+										"{{host}}"
+									],
+									"path": [
+										"alarm",
+										"findById"
+									],
+									"query": [
+										{
+											"key": "alarm_id",
+											"value": "7a9cb08843bf417f874f8748eccfb3c6"
+										}
+									]
+								},
+								"description": "## 参数\r\n|键值|类型|说明|例子|\r\n|---|---|---|---|\r\n|alarm_id|string|id|7a9cb08843bf417f874f8748eccfb3c6|\r\n\r\n## 返回\r\n|键值|类型|说明|例子|\r\n|---|---|---|---|\r\n|code|string|0:失败,1:成功|0|\r\n|msg|string|提示文字|成功\r\n|data|object|数据|{alarm_id:'0bfc511116e7495bb393f902fdea01',alarm_name:'一般警告',contact_id:[\"1\", \"2\"],alarm_by_mobile:'true',alarm_by_email:'false',alarm_by_wechat:'false',alarm_count:'1',alarm_minterval:'5',alarm_relieved:'true',alarm_upgrade:'0',upgrade_contact_id:[\"1\", \"2\"],update_date:'',operator:'',memo:''}|\r\n|data[0]|alarm_id|string|id|\r\n|data[0]|alarm_name|string|名称|\r\n|data[0]|contact_id|array|联系人|\r\n|data[0]|alarm_by_mobile|boolean|是否短信告警：是true，否false|\r\n|data[0]|alarm_by_email|boolean|是否邮箱告警：是true，否false|\r\n|data[0]|alarm_by_wechat|boolean|是否微信告警：是true，否false|\r\n|data[0]|alarm_count|int|告警数量|\r\n|data[0]|alarm_minterval|int|告警间隔（以小时为单位）|\r\n|data[0]|alarm_relieved|boolean|是否允许手动解除|\r\n|data[0]|alarm_upgrade|boolean|是否升级|\r\n|data[0]|upgrade_contact_id|array|升级联系人|\r\n|data[0]|update_date|string|操作时间|\r\n|data[0]|operator|string|操作员|\r\n|data[0]|memo|string|备注|"
+							},
+							"response": []
+						},
+						{
+							"name": "编辑",
+							"request": {
+								"method": "POST",
+								"header": [
+									{
+										"key": "Content-Type",
+										"type": "text",
+										"value": "application/json"
+									},
+									{
+										"key": "token",
+										"type": "text",
+										"value": "{{token}}"
+									}
+								],
+								"body": {
+									"mode": "raw",
+									"raw": "{\n\"alarm_id\":\"7a9cb08843bf417f874f8748eccfb3c6\",\n\"alarm_name\":\"告警测试1\",\n\"contact_id\":[\"5af0f0f8245e47d3afdc2bd5696fa0c9\"],\n\"contact_name\":[\"测试1\"],\n\"alarm_by_mobile\":true,\n\"alarm_by_email\":true,\n\"alarm_by_wechat\":true,\n\"alarm_count\":2,\n\"alarm_minterval\":5,\n\"alarm_relieved\":true,\n\"alarm_upgrade\":true,\n\"upgrade_contact_id\":[\"5af0f0f8245e47d3afdc2bd5696fa0c9\"],\n\"upgrade_contact_name\":[\"测试1\"],\n\"memo\":\"新中新\"\n}",
+									"options": {
+										"raw": {}
+									}
+								},
+								"url": {
+									"raw": "{{host}}/alarm/edit",
+									"host": [
+										"{{host}}"
+									],
+									"path": [
+										"alarm",
+										"edit"
+									]
+								},
+								"description": "## 参数\r\n|键值|类型|说明|例子|\r\n|---|---|---|---|\r\n|alarm_id|string|id||\r\n|alarm_name|string|名称||\r\n|contact_id|array|联系人id|[\"\",\"\"]|\r\n|contact_name|array|联系人名称|[\"\",\"\"]|\r\n|alarm_by_mobile|boolean|是否短信告警|true|\r\n|alarm_by_email|boolean|是否邮箱告警|false|\r\n|alarm_by_wechat|boolean|是否微信告警|false|\r\n|alarm_count|int|告警数|2|\r\n|alarm_minterval|int|告警间隔|5|\r\n|alarm_relieved|boolean|允许手动解除：false不允许true允许|true|\r\n|alarm_upgrade|boolean|是否升级|false|\r\n|upgrade_contact_id|array|升级联系人id|[\"\",\"\"]|\r\n|upgrade_contact_name|array|升级联系人名称|[\"\",\"\"]|\r\n|memo|string|备注||\r\n\r\n## 返回\r\n|键值|类型|说明|例子|\r\n|---|---|---|---|\r\n|code|string|0:失败,1:成功|0|\r\n|msg|string|提示文字|成功"
+							},
+							"response": []
+						},
+						{
+							"name": "删除",
+							"request": {
+								"method": "POST",
+								"header": [
+									{
+										"key": "Content-Type",
+										"type": "text",
+										"value": "application/json"
+									},
+									{
+										"key": "token",
+										"type": "text",
+										"value": "{{token}}"
+									}
+								],
+								"body": {
+									"mode": "raw",
+									"raw": "{\"alarm_id\":\"0bfc511116e7495bb393f902fdea01b1\"}",
+									"options": {
+										"raw": {}
+									}
+								},
+								"url": {
+									"raw": "{{host}}/alarm/delete",
+									"host": [
+										"{{host}}"
+									],
+									"path": [
+										"alarm",
+										"delete"
+									]
+								},
+								"description": "## 参数\r\n|键值|类型|说明|例子|\r\n|---|---|---|---|\r\n|alarm_id|string|id|0bfc511116e7495bb393f902fdea01|\r\n\r\n## 返回\r\n|键值|类型|说明|例子|\r\n|---|---|---|---|\r\n|code|string|0:失败,1:成功|0|\r\n|msg|string|提示文字|成功"
+							},
+							"response": []
+						},
+						{
+							"name": "下拉框",
+							"protocolProfileBehavior": {
+								"disableBodyPruning": true
+							},
+							"request": {
+								"method": "GET",
+								"header": [
+									{
+										"key": "token",
+										"type": "text",
+										"value": "{{token}}"
+									}
+								],
+								"body": {
+									"mode": "raw",
+									"raw": "",
+									"options": {
+										"raw": {}
+									}
+								},
+								"url": {
+									"raw": "{{host}}/alarm/getListIdAndName",
+									"host": [
+										"{{host}}"
+									],
+									"path": [
+										"alarm",
+										"getListIdAndName"
+									]
+								},
+								"description": "## 参数\r\n|键值|类型|说明|例子|\r\n|---|---|---|---|\r\n\r\n## 返回\r\n|键值|类型|说明|例子|\r\n|---|---|---|---|\r\n|code|string|0:失败,1:成功|0|\r\n|msg|string|提示文字|成功\r\n|data|array|数据|[{alarm_id:'0bfc511116e7495bb393f902fdea01',alarm_name:'一般告警'}]|\r\n|data[0]|alarm_id|string|id|\r\n|data[0]|alarm_name|string|名称|\r\n"
+							},
+							"response": []
+						},
+						{
+							"name": "列表",
+							"request": {
+								"method": "GET",
+								"header": [
+									{
+										"key": "token",
+										"type": "text",
+										"value": "{{token}}"
+									}
+								],
+								"url": {
+									"raw": "{{host}}/alarm/list?page=1&pageSize=10",
+									"host": [
+										"{{host}}"
+									],
+									"path": [
+										"alarm",
+										"list"
+									],
+									"query": [
+										{
+											"key": "page",
+											"value": "1"
+										},
+										{
+											"key": "pageSize",
+											"value": "10"
+										}
+									]
+								},
+								"description": "## 参数\r\n|键值|类型|说明|例子|\r\n|---|---|---|---|\r\n|page|string|页码|1|\r\n|pageSize|string|每页显示条数|10|\r\n\r\n## 返回\r\n|键值|类型|说明|例子|\r\n|---|---|---|---|\r\n|code|string|0:失败,1:成功|0|\r\n|msg|string|提示文字|成功\r\n|data|array|数据|[{alarm_id:'0bfc511116e7495bb393f902fdea01',alarm_name:'一般警告',alarm_count:'1',alarm_status:'true',alarm_minterval:'5',alarm_type_name:'短信，微信'memo:''}]|\r\n|data[0]|alarm_id|string|id|\r\n|data[0]|alarm_name|string|名称|\r\n|data[0]|alarm_type_name|string|告警方式|\r\n|data[0]|alarm_count|ing|告警数量|\r\n|data[0]|alarm_minterval|int|告警间隔（以小时为单位）|\r\n|data[0]|alarm_status|boolean|告警规则数状态true已启用false已停用|\r\n|data[0]|memo|string|备注|"
+							},
+							"response": []
+						},
+						{
+							"name": "添加",
+							"request": {
+								"method": "POST",
+								"header": [
+									{
+										"key": "Content-Type",
+										"value": "application/json",
+										"type": "text"
+									},
+									{
+										"key": "token",
+										"value": "{{token}}",
+										"type": "text"
+									}
+								],
+								"body": {
+									"mode": "raw",
+									"raw": "{\n\"alarm_name\":\"1`231\",\n\"alarm_count\":5,\n\"alarm_minterval\":17,\n\"alarm_relieved\":true,\n\"contact_id\":[\"5af0f0f8245e47d3afdc2bd5696fa0c9\",\"aseds34dhgjskhs45d6e21wsfde1\"],\n\"alarm_upgrade\":true,\n\"upgrade_contact_id\":[\"5af0f0f8245e47d3afdc2bd5696fa0c9\",\"aseds34dhgjskhs45d6e21wsfde1\"],\n\"alarm_by_mobile\":true,\n\"alarm_by_email\":true,\n\"alarm_by_wechat\":true,\n\"contact_name\":[\"测试1\",\"系统管理员\"],\n\"upgrade_contact_name\":[\"测试1\",\"系统管理员\"]\n}",
+									"options": {
+										"raw": {}
+									}
+								},
+								"url": {
+									"raw": "{{host}}/alarm/add",
+									"host": [
+										"{{host}}"
+									],
+									"path": [
+										"alarm",
+										"add"
+									]
+								},
+								"description": "## 参数\r\n|键值|类型|说明|例子|\r\n|---|---|---|---|\r\n|alarm_name|string|名称||\r\n|contact_id|array|联系人id|[\"\",\"\"]|\r\n|contact_name|array|联系人名称|[\"\",\"\"]|\r\n|alarm_by_mobile|boolean|是否短信告警|true|\r\n|alarm_by_email|boolean|是否邮箱告警|false|\r\n|alarm_by_wechat|boolean|是否微信告警|false|\r\n|alarm_count|int|告警数|2|\r\n|alarm_minterval|int|告警间隔|5|\r\n|alarm_relieved|boolean|允许手动解除：false不允许true允许|true|\r\n|alarm_upgrade|boolean|是否升级|false|\r\n|upgrade_contact_id|array|升级联系人id|[\"\",\"\"]|\r\n|upgrade_contact_name|array|升级联系人名称|[\"\",\"\"]|\r\n|memo|string|备注||\r\n\r\n## 返回\r\n|键值|类型|说明|例子|\r\n|---|---|---|---|\r\n|code|string|0:失败,1:成功|0|\r\n|msg|string|提示文字|成功"
+							},
+							"response": []
+						},
+						{
+							"name": "关联事件-未关联",
+							"request": {
+								"method": "GET",
+								"header": [
+									{
+										"key": "token",
+										"type": "text",
+										"value": "{{token}}"
+									}
+								],
+								"url": {
+									"raw": "{{host}}/event/listForAlarm?page=1&pageSize=10&event_set=unsettled&alarm_id=be3345846c4541dfb860ae7d56e7ca7b",
+									"host": [
+										"{{host}}"
+									],
+									"path": [
+										"event",
+										"listForAlarm"
+									],
+									"query": [
+										{
+											"key": "page",
+											"value": "1"
+										},
+										{
+											"key": "pageSize",
+											"value": "10"
+										},
+										{
+											"key": "event_set",
+											"value": "unsettled"
+										},
+										{
+											"key": "alarm_id",
+											"value": "be3345846c4541dfb860ae7d56e7ca7b"
+										}
+									]
+								},
+								"description": "## 参数\r\n|键值|类型|说明|例子|\r\n|---|---|---|---|\r\n|page|string|页码|1|\r\n|pageSize|string|每页显示条数|10|\r\n|alarm_id|string|id|be3345846c4541dfb860ae7d56e7ca7b|\r\n|event_set|string|未关联事件type|unsettled|\r\n\r\n## 返回\r\n|键值|类型|说明|例子|\r\n|---|---|---|---|\r\n|code|string|0:失败,1:成功|0|\r\n|msg|string|提示文字|成功\r\n|data|array|数据|[{event_id:'1001',event_name:'事件',classify:'',term_type:'',term_type_name:'',description:'',event_level:'1',event_level_name:'',status_id:'',status_name:'0',alarm_id:'',alarm_name:''}]|\r\n|data[0]|event_id|string|id|\r\n|data[0]|event_name|string|名称|\r\n|data[0]|classify|string|类别|\r\n|data[0]|term_type|string|终端类型|\r\n|data[0]|term_type_name|string|终端类型名称|\r\n|data[0]|description|string|描述|\r\n|data[0]|event_level|string|事件等级|\r\n|data[0]|status_id|string|状态|\r\n|data[0]|status_name|string|状态名称|\r\n|data[0]|alarm_id|string|告警id|\r\n|data[0]|alarm_name|string|告警名称|"
+							},
+							"response": []
+						},
+						{
+							"name": "关联事件-已关联事件",
+							"request": {
+								"method": "GET",
+								"header": [
+									{
+										"key": "token",
+										"type": "text",
+										"value": "{{token}}"
+									}
+								],
+								"url": {
+									"raw": "{{host}}/event/listForAlarm?page=1&pageSize=10&alarm_id=be3345846c4541dfb860ae7d56e7ca7b&event_set=settled",
+									"host": [
+										"{{host}}"
+									],
+									"path": [
+										"event",
+										"listForAlarm"
+									],
+									"query": [
+										{
+											"key": "page",
+											"value": "1"
+										},
+										{
+											"key": "pageSize",
+											"value": "10"
+										},
+										{
+											"key": "alarm_id",
+											"value": "be3345846c4541dfb860ae7d56e7ca7b"
+										},
+										{
+											"key": "event_set",
+											"value": "settled"
+										}
+									]
+								},
+								"description": "## 参数\r\n|键值|类型|说明|例子|\r\n|---|---|---|---|\r\n|page|string|页码|1|\r\n|pageSize|string|每页显示条数|10|\r\n|alarm_id|string|id|be3345846c4541dfb860ae7d56e7ca7b|\r\n|event_set|string|未关联事件type|settled|\r\n\r\n## 返回\r\n|键值|类型|说明|例子|\r\n|---|---|---|---|\r\n|code|string|0:失败,1:成功|0|\r\n|msg|string|提示文字|成功\r\n|data|array|数据|[{event_id:'1001',event_name:'事件',classify:'',term_type:'',term_type_name:'',description:'',event_level:'1',event_level_name:'',status_id:'',status_name:'0',alarm_id:'',alarm_name:''}]|\r\n|data[0]|event_id|string|id|\r\n|data[0]|event_name|string|名称|\r\n|data[0]|classify|string|类别|\r\n|data[0]|term_type|string|终端类型|\r\n|data[0]|term_type_name|string|终端类型名称|\r\n|data[0]|description|string|描述|\r\n|data[0]|event_level|string|事件等级|\r\n|data[0]|status_id|string|状态|\r\n|data[0]|status_name|string|状态名称|\r\n|data[0]|alarm_id|string|告警id|\r\n|data[0]|alarm_name|string|告警名称|"
+							},
+							"response": []
+						},
+						{
+							"name": "关联事件-已关联事件-查询按钮",
+							"request": {
+								"method": "GET",
+								"header": [
+									{
+										"key": "token",
+										"type": "text",
+										"value": "{{token}}"
+									}
+								],
+								"url": {
+									"raw": "{{host}}/event/listForAlarm?page=1&pageSize=10&alarm_id=be3345846c4541dfb860ae7d56e7ca7b&classify=1&term_type=1&keywords=1001&event_set=settled",
+									"host": [
+										"{{host}}"
+									],
+									"path": [
+										"event",
+										"listForAlarm"
+									],
+									"query": [
+										{
+											"key": "page",
+											"value": "1"
+										},
+										{
+											"key": "pageSize",
+											"value": "10"
+										},
+										{
+											"key": "alarm_id",
+											"value": "be3345846c4541dfb860ae7d56e7ca7b",
+											"description": "告警id"
+										},
+										{
+											"key": "classify",
+											"value": "1",
+											"description": "分类"
+										},
+										{
+											"key": "term_type",
+											"value": "1",
+											"description": "终端类型"
+										},
+										{
+											"key": "keywords",
+											"value": "1001",
+											"description": "事件代码或名称"
+										},
+										{
+											"key": "event_set",
+											"value": "settled"
+										}
+									]
+								},
+								"description": "## 参数\r\n|键值|类型|说明|例子|\r\n|---|---|---|---|\r\n|page|string|页码|1|\r\n|pageSize|string|每页显示条数|10|\r\n|alarm_id|string|告警id|be3345846c4541dfb860ae7d56e7ca7b|\r\n|classify|string|事件分类|1|\r\n|term_type|string|终端类型|1|\r\n|keywords|string|事件名称或代码||\r\n|event_set|string|未关联事件type|settled|\r\n\r\n## 返回\r\n|键值|类型|说明|例子|\r\n|---|---|---|---|\r\n|code|string|0:失败,1:成功|0|\r\n|msg|string|提示文字|成功\r\n|data|array|数据|[{event_id:'1001',event_name:'事件',classify:'',term_type:'',term_type_name:'',description:'',event_level:'1',event_level_name:'',status_id:'',status_name:'0',alarm_id:'',alarm_name:''}]|\r\n|data[0]|event_id|string|id|\r\n|data[0]|event_name|string|名称|\r\n|data[0]|classify|string|类别|\r\n|data[0]|term_type|string|终端类型|\r\n|data[0]|term_type_name|string|终端类型名称|\r\n|data[0]|description|string|描述|\r\n|data[0]|event_level|string|事件等级|\r\n|data[0]|status_id|string|状态|\r\n|data[0]|status_name|string|状态名称|\r\n|data[0]|alarm_id|string|告警id|\r\n|data[0]|alarm_name|string|告警名称|"
+							},
+							"response": []
+						},
+						{
+							"name": "关联事件-未关联-查询按钮",
+							"request": {
+								"method": "GET",
+								"header": [
+									{
+										"key": "token",
+										"type": "text",
+										"value": "{{token}}"
+									}
+								],
+								"url": {
+									"raw": "{{host}}/event/listForAlarm?page=1&pageSize=10&classify=1&term_type=1&keywords=1001&event_set=unsettled&alarm_id=be3345846c4541dfb860ae7d56e7ca7b",
+									"host": [
+										"{{host}}"
+									],
+									"path": [
+										"event",
+										"listForAlarm"
+									],
+									"query": [
+										{
+											"key": "page",
+											"value": "1"
+										},
+										{
+											"key": "pageSize",
+											"value": "10"
+										},
+										{
+											"key": "classify",
+											"value": "1",
+											"description": "分类"
+										},
+										{
+											"key": "term_type",
+											"value": "1",
+											"description": "终端类型"
+										},
+										{
+											"key": "keywords",
+											"value": "1001",
+											"description": "事件id或名称"
+										},
+										{
+											"key": "event_set",
+											"value": "unsettled"
+										},
+										{
+											"key": "alarm_id",
+											"value": "be3345846c4541dfb860ae7d56e7ca7b"
+										}
+									]
+								},
+								"description": "## 参数\r\n|键值|类型|说明|例子|\r\n|---|---|---|---|\r\n|page|string|页码|1|\r\n|pageSize|string|每页显示条数|10|\r\n|classify|string|事件分类|1|\r\n|term_type|string|终端类型|1|\r\n|keywords|string|事件名称或代码||\r\n|alarm_id|string|id|be3345846c4541dfb860ae7d56e7ca7b|\r\n|event_set|string|未关联事件type|unsettled|\r\n\r\n## 返回\r\n|键值|类型|说明|例子|\r\n|---|---|---|---|\r\n|code|string|0:失败,1:成功|0|\r\n|msg|string|提示文字|成功\r\n|data|array|数据|[{event_id:'1001',event_name:'事件',classify:'',term_type:'',term_type_name:'',description:'',event_level:'1',event_level_name:'',status_id:'',status_name:'0',alarm_id:'',alarm_name:''}]|\r\n|data[0]|event_id|string|id|\r\n|data[0]|event_name|string|名称|\r\n|data[0]|classify|string|类别|\r\n|data[0]|term_type|string|终端类型|\r\n|data[0]|term_type_name|string|终端类型名称|\r\n|data[0]|description|string|描述|\r\n|data[0]|event_level|string|事件等级|\r\n|data[0]|status_id|string|状态|\r\n|data[0]|status_name|string|状态名称|\r\n|data[0]|alarm_id|string|告警id|\r\n|data[0]|alarm_name|string|告警名称|"
+							},
+							"response": []
+						},
+						{
+							"name": "关联事件-确定",
+							"request": {
+								"method": "POST",
+								"header": [
+									{
+										"key": "Content-Type",
+										"value": "application/json",
+										"type": "text"
+									},
+									{
+										"key": "token",
+										"value": "{{token}}",
+										"type": "text"
+									}
+								],
+								"body": {
+									"mode": "raw",
+									"raw": "{\n\"alarm_id\":\"a44bebe02eb4c2d7ff26aed93a2\",\n\"event_ids\":[\"1001\",\"1002\",\"1003\"]\n}",
+									"options": {
+										"raw": {}
+									}
+								},
+								"url": {
+									"raw": "{{host}}/event/editAlarm",
+									"host": [
+										"{{host}}"
+									],
+									"path": [
+										"event",
+										"editAlarm"
+									]
+								},
+								"description": "## 参数\r\n|键值|类型|说明|例子|\r\n|---|---|---|---|\r\n|alarm_id|string|id|a44bebe02eb4c2d7ff26aed93a2|\r\n|event_ids|array|事件id集合|[\"1001\",\"1002\",\"1003\"]|\r\n\r\n\r\n## 返回\r\n|键值|类型|说明|例子|\r\n|---|---|---|---|\r\n|code|string|0:失败,1:成功|0|\r\n|msg|string|提示文字|成功"
+							},
+							"response": []
+						},
+						{
+							"name": "启用，停用",
+							"request": {
+								"method": "POST",
+								"header": [
+									{
+										"key": "Content-Type",
+										"type": "text",
+										"value": "application/json"
+									},
+									{
+										"key": "token",
+										"type": "text",
+										"value": "{{token}}"
+									}
+								],
+								"body": {
+									"mode": "raw",
+									"raw": "{\n\"alarm_id\":\"7a9cb08843bf417f874f8748eccfb3c6\",\n\"alarm_status\":true\n}",
+									"options": {
+										"raw": {}
+									}
+								},
+								"url": {
+									"raw": "{{host}}/alarm/editStatus",
+									"host": [
+										"{{host}}"
+									],
+									"path": [
+										"alarm",
+										"editStatus"
+									]
+								},
+								"description": "## 参数\r\n|键值|类型|说明|例子|\r\n|---|---|---|---|\r\n|alarm_id|string|id||\r\n|alarm_status|boolean|状态|true|\r\n\r\n## 返回\r\n|键值|类型|说明|例子|\r\n|---|---|---|---|\r\n|code|string|0:失败,1:成功|0|\r\n|msg|string|提示文字|成功"
+							},
+							"response": []
+						}
+					],
+					"protocolProfileBehavior": {},
+					"_postman_isSubFolder": true
+				},
+				{
+					"name": "告警视图-电子地图",
+					"item": [
+						{
+							"name": "查看-基本信息",
+							"request": {
+								"method": "GET",
+								"header": [
+									{
+										"key": "token",
+										"type": "text",
+										"value": "{{token}}"
+									}
+								],
+								"url": {
+									"raw": "{{host}}/alarmCenter/findByMapId?term_id=101101",
+									"host": [
+										"{{host}}"
+									],
+									"path": [
+										"alarmCenter",
+										"findByMapId"
+									],
+									"query": [
+										{
+											"key": "term_id",
+											"value": "101101"
+										}
+									]
+								},
+								"description": "## 参数\r\n|键值|类型|说明|例子|\r\n|---|---|---|---|\r\n|alarm_center_id|string|id|1001|\r\n\r\n## 返回\r\n|键值|类型|说明|例子|\r\n|---|---|---|---|\r\n|code|string|0:失败,1:成功|0|\r\n|msg|string|提示文字|成功\r\n|data|object|数据|{\r\n\"area_name\": \"新中新1\",\r\n\"alarm_label\": \"告警\",\r\n\"term_name\": \"测试\",\r\n\"term_id\": \"101101\",\r\n\"alarm_data\": [{\r\n        \"type_id\": \"1001\",\r\n        \"alarm_last_date\": \"2020-03-10 13:30:14\",\r\n        \"alarm_by_email\": true,\r\n        \"alarm_date\": \"2020-02-28 15:25:34\",\r\n        \"alarm_type_name\": \"短信，邮箱，微信\",\r\n        \"term_id\": 101101,\r\n        \"alarm_notice_count\": 1,\r\n        \"alarm_by_mobile\": true,\r\n        \"alarm_relieved\": 0,\r\n        \"term_name\": \"测试\",\r\n        \"event_id\": \"1009\",\r\n        \"alarm_by_wechat\": true,\r\n        \"alarm_content\": \"告警测试1\",\r\n        \"alarm_status\": 1,\r\n        \"alarm_id\": \"7a9cb08843bf417f874f8748eccfb3c6\",\r\n        \"alarm_center_id\": \"1001\"}]\r\n}|\r\n|data[0]|term_id|int|终端id|\r\n|data[0]|term_name|string|终端名称\r\n|data[0]|area_name|string|位置|\r\n|data[0]|run_status|string|状态|\r\n|data[0]|alarm_label|string|告警|\r\n\r\n|alarm_data[0]|term_id|int|终端id|\r\n|alarm_data[0]|term_name|string|终端名称\r\n|alarm_data[0]|type_id|string|类型|\r\n|alarm_data[0]|type_name|string|终端类型名称|\r\n|alarm_data[0]|event_id|string|事件id|\r\n|alarm_data[0]|alarm_id|string|告警规则id|\r\n|alarm_data[0]|alarm_name|string|告警规则名称|\r\n|alarm_data[0]|alarm_date|string|告警日期|\r\n|alarm_data[0]|alarm_duration|int|告警持续时间|\r\n|alarm_data[0]|alarm_current_count|int|告警次数|\r\n|alarm_data[0]|alarm_content|string|告警内容|\r\n|alarm_data[0]|alarm_type_name|string|告警方式|\r\n|alarm_data[0]|contact_name|string|通知接收人|\r\n|alarm_data[0]|alarm_upgrade|boolean|是否升级|\r\n|alarm_data[0]|upgrade_contact_name|string|升级通知接收人|"
+							},
+							"response": []
+						},
+						{
+							"name": "解除告警",
+							"request": {
+								"method": "POST",
+								"header": [
+									{
+										"key": "Content-Type",
+										"type": "text",
+										"value": "application/json"
+									},
+									{
+										"key": "token",
+										"type": "text",
+										"value": "{{token}}"
+									}
+								],
+								"body": {
+									"mode": "raw",
+									"raw": "{\n\"alarm_center_id\":\"7a9cb08843bf417f874f8748eccfb3c6\"\n}",
+									"options": {
+										"raw": {}
+									}
+								},
+								"url": {
+									"raw": "{{host}}/alarmCenter/editStatus",
+									"host": [
+										"{{host}}"
+									],
+									"path": [
+										"alarmCenter",
+										"editStatus"
+									]
+								},
+								"description": "## 参数\r\n|键值|类型|说明|例子|\r\n|---|---|---|---|\r\n|alarm_center_id|string|id||\r\n\r\n## 返回\r\n|键值|类型|说明|例子|\r\n|---|---|---|---|\r\n|code|string|0:失败,1:成功|0|\r\n|msg|string|提示文字|成功"
+							},
+							"response": []
+						},
+						{
+							"name": "通知记录",
+							"request": {
+								"method": "GET",
+								"header": [
+									{
+										"key": "token",
+										"type": "text",
+										"value": "{{token}}"
+									}
+								],
+								"url": {
+									"raw": "{{host}}/alarmLog/listAll?alarm_center_id=1001",
+									"host": [
+										"{{host}}"
+									],
+									"path": [
+										"alarmLog",
+										"listAll"
+									],
+									"query": [
+										{
+											"key": "alarm_center_id",
+											"value": "1001"
+										},
+										{
+											"key": "pageSize",
+											"value": "10",
+											"disabled": true
+										}
+									]
+								},
+								"description": "## 参数\r\n|键值|类型|说明|例子|\r\n|---|---|---|---|\r\n|alarm_center_id|string|告警中心id|1001|\r\n\r\n\r\n## 返回\r\n|键值|类型|说明|例子|\r\n|---|---|---|---|\r\n|code|string|0:失败,1:成功|0|\r\n|msg|string|提示文字|成功\r\n|data|array|数据|[{\"log_id\": \"100101\",\r\n\"alarm_date\": \"2020-02-28 15:28:51\",\r\n\"alarm_content\": \"告警测试\",\r\n\"alarm_type\": \"mobile\",\r\n\"alarm_type_name\": \"短信\",\r\n\"alarm_upgrade\": false,\r\n\"alarm_result\": \"已通知\",\r\n\"alarm_contact\": \"测试1，测试2\",\r\n\"alarm_upgrade_contact\": \"\",\r\n\"alarm_center_id\": \"1001\"\r\n}]|\r\n|data[0]|log_id|string|id|\r\n|data[0]|alarm_date|string|通知时间|\r\n|data[0]|alarm_content|string|通知内容|\r\n|data[0]|alarm_type|string|通知方式英文|\r\n|data[0]|alarm_type_name|string|通知方式名称|\r\n|data[0]|alarm_upgrade|boolean|是否升级：是true  否false|\r\n|data[0]|alarm_result|string|通知结果|\r\n|data[0]|alarm_contact|string|通知接收人|\r\n|data[0]|alarm_upgrade_contact|string|升级通知接收人|"
+							},
+							"response": []
+						},
+						{
+							"name": "终端列表-告警中",
+							"request": {
+								"method": "GET",
+								"header": [
+									{
+										"key": "token",
+										"type": "text",
+										"value": "{{token}}"
+									}
+								],
+								"url": {
+									"raw": "{{host}}/terminal/listAlarmingTerminal?campus_id=1001",
+									"host": [
+										"{{host}}"
+									],
+									"path": [
+										"terminal",
+										"listAlarmingTerminal"
+									],
+									"query": [
+										{
+											"key": "campus_id",
+											"value": "1001"
+										}
+									]
+								},
+								"description": "## 参数\r\n|键值|类型|说明|例子|\r\n|---|---|---|---|\r\n|campus_id|string|校区id|1|\r\n\r\n## 返回\r\n|键值|类型|说明|例子|\r\n|---|---|---|---|\r\n|code|string|0:失败,1:成功|0|\r\n|msg|string|提示文字|成功\r\n|data|array|数据|[{\r\n\"term_id\": \"100101\",\r\n\"term_name\": \"测试1\",\r\n\"campus_graphy_x\": \"123456789\",\r\n\"campus_graphy_y\": \"123456789\",\r\n\"update_date\": \"\"\r\n}]|\r\n|data[0]|term_id|string|id|\r\n|data[0]|term_name|string|终端名称|\r\n|data[0]|campus_graphy_x|string|x坐标|\r\n|data[0]|campus_graphy_y|string|y坐标|\r\n|data[0]|update_date|string|操作日期|"
+							},
+							"response": []
+						}
+					],
+					"protocolProfileBehavior": {},
+					"_postman_isSubFolder": true
+				},
+				{
+					"name": "告警记录",
+					"item": [
+						{
+							"name": "列表",
+							"request": {
+								"method": "GET",
+								"header": [
+									{
+										"key": "token",
+										"type": "text",
+										"value": "{{token}}"
+									}
+								],
+								"url": {
+									"raw": "{{host}}/alarmCenter/listAlarmed?page=1&pageSize=10&start_date=2020-04-03&end_date=2020-04-03",
+									"host": [
+										"{{host}}"
+									],
+									"path": [
+										"alarmCenter",
+										"listAlarmed"
+									],
+									"query": [
+										{
+											"key": "page",
+											"value": "1"
+										},
+										{
+											"key": "pageSize",
+											"value": "10"
+										},
+										{
+											"key": "start_date",
+											"value": "2020-04-03"
+										},
+										{
+											"key": "end_date",
+											"value": "2020-04-03"
+										}
+									]
+								},
+								"description": "## 参数\r\n|键值|类型|说明|例子|\r\n|---|---|---|---|\r\n|page|string|页码|1|\r\n|pageSize|string|每页显示条数|10|\r\n|start_date|string|开始时间||\r\n|end_date|string|结束时间|10|\r\n\r\n## 返回\r\n|键值|类型|说明|例子|\r\n|---|---|---|---|\r\n|code|string|0:失败,1:成功|0|\r\n|msg|string|提示文字|成功\r\n|data|array|数据|[{\r\n\"alarm_name\": \"告警测试1\",\r\n\"type_name\": \"主机\",\r\n\"term_name\": \"测试\",\r\n\"type_id\": \"1001\",\r\n\"alarm_date\": \"2020-02-28 15:25:34\",\r\n\"alarm_type_name\": \"短信，邮箱，微信\",\r\n\"term_id\": 101101,\r\n\"alarm_id\": \"7a9cb08843bf417f874f8748eccfb3c6\",\r\n\"alarm_center_id\": \"1003\"\r\n}]|\r\n|data[0]|alarm_center_id|string|id|\r\n|data[0]|term_id|int|终端id|\r\n|data[0]|term_name|string|终端名称|\r\n|data[0]|alarm_id|string|规则id|\r\n|data[0]|alarm_name|string|规则名称|\r\n|data[0]|alarm_type_name|string|通知方式|\r\n|data[0]|alarm_date|string|告警日期|"
+							},
+							"response": []
+						},
+						{
+							"name": "查看-基本信息",
+							"request": {
+								"method": "GET",
+								"header": [
+									{
+										"key": "token",
+										"type": "text",
+										"value": "{{token}}"
+									}
+								],
+								"url": {
+									"raw": "{{host}}/alarmCenter/findById?alarm_center_id=1001",
+									"host": [
+										"{{host}}"
+									],
+									"path": [
+										"alarmCenter",
+										"findById"
+									],
+									"query": [
+										{
+											"key": "alarm_center_id",
+											"value": "1001"
+										}
+									]
+								},
+								"description": "## 参数\r\n|键值|类型|说明|例子|\r\n|---|---|---|---|\r\n|alarm_center_id|string|id|1001|\r\n\r\n## 返回\r\n|键值|类型|说明|例子|\r\n|---|---|---|---|\r\n|code|string|0:失败,1:成功|0|\r\n|msg|string|提示文字|成功\r\n|data|object|数据|{\r\n\"alarm_name\": \"告警测试1\",\r\n\"contact_name\": \"zhang,test\",\r\n\"alarm_date\": \"2020-02-28 15:25:34\",\r\n\"alarm_type_name\": \"短信，邮箱，微信\",\r\n\"term_id\": 101101,\r\n\"contact_id\": \"[\\\"1\\\", \\\"2\\\"]\",\r\n\"alarm_upgrade\": true,\r\n\"term_name\": \"测试\",\r\n\"event_id\": \"1009\",\r\n\"alarm_content\": \"告警测试1\",\r\n\"upgrade_contact_name\": \"zhang\",\r\n\"alarm_status\": 1,\r\n\"upgrade_contact_id\": \"[\\\"1\\\"]\",\r\n\"alarm_id\": \"7a9cb08843bf417f874f8748eccfb3c6\",\r\n\"alarm_current_count\": 1,\r\n\"alarm_center_id\": \"1001\",\r\n\"alarm_relieve\": 0\r\n}|\r\n|data[0]|alarm_center_id|string|id|\r\n|data[0]|term_id|int|终端id|\r\n|data[0]|term_name|string|终端名称\r\n|data[0]|area_name|string|位置|\r\n|data[0]|event_id|string|事件id|\r\n|data[0]|alarm_id|string|告警规则id|\r\n|data[0]|alarm_name|string|告警规则名称|\r\n|data[0]|alarm_date|string|告警日期|\r\n|data[0]|alarm_duration|int|告警持续时间|\r\n|data[0]|alarm_current_count|int|告警次数|\r\n|data[0]|alarm_content|string|告警内容|\r\n|data[0]|alarm_type_name|string|告警方式|\r\n|data[0]|contact_name|string|通知接收人|\r\n|data[0]|alarm_upgrade|boolean|是否升级|\r\n|data[0]|upgrade_contact_name|string|升级通知接收人|\r\n|data[0]|alarm_end_date|string|告警解除日期|"
+							},
+							"response": []
+						},
+						{
+							"name": "通知记录",
+							"request": {
+								"method": "GET",
+								"header": [
+									{
+										"key": "token",
+										"type": "text",
+										"value": "{{token}}"
+									}
+								],
+								"url": {
+									"raw": "{{host}}/alarmLog/listAll?alarm_center_id=1001",
+									"host": [
+										"{{host}}"
+									],
+									"path": [
+										"alarmLog",
+										"listAll"
+									],
+									"query": [
+										{
+											"key": "alarm_center_id",
+											"value": "1001"
+										},
+										{
+											"key": "pageSize",
+											"value": "10",
+											"disabled": true
+										}
+									]
+								},
+								"description": "## 参数\r\n|键值|类型|说明|例子|\r\n|---|---|---|---|\r\n|alarm_center_id|string|告警中心id|1001|\r\n\r\n\r\n## 返回\r\n|键值|类型|说明|例子|\r\n|---|---|---|---|\r\n|code|string|0:失败,1:成功|0|\r\n|msg|string|提示文字|成功\r\n|data|array|数据|[{\"log_id\": \"100101\",\r\n\"alarm_date\": \"2020-02-28 15:28:51\",\r\n\"alarm_content\": \"告警测试\",\r\n\"alarm_type\": \"mobile\",\r\n\"alarm_type_name\": \"短信\",\r\n\"alarm_upgrade\": false,\r\n\"alarm_result\": \"已通知\",\r\n\"alarm_contact\": \"测试1，测试2\",\r\n\"alarm_upgrade_contact\": \"\",\r\n\"alarm_center_id\": \"1001\"\r\n}]|\r\n|data[0]|log_id|string|id|\r\n|data[0]|alarm_date|string|通知时间|\r\n|data[0]|alarm_content|string|通知内容|\r\n|data[0]|alarm_type|string|通知方式英文|\r\n|data[0]|alarm_type_name|string|通知方式名称|\r\n|data[0]|alarm_upgrade|boolean|是否升级：是true  否false|\r\n|data[0]|alarm_result|string|通知结果|\r\n|data[0]|alarm_contact|string|通知接收人|\r\n|data[0]|alarm_upgrade_contact|string|升级通知接收人|"
+							},
+							"response": []
+						}
+					],
+					"protocolProfileBehavior": {},
+					"_postman_isSubFolder": true
+				}
+			],
+			"protocolProfileBehavior": {}
+		},
+		{
+			"name": "统计中心",
+			"item": [
+				{
+					"name": "终端设备状态列表",
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true
+					},
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "Content-Type",
+								"name": "Content-Type",
+								"value": "application/json",
+								"type": "text"
+							},
+							{
+								"key": "token",
+								"value": "{{token}}",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://10.9.25.19/api/statisticsTerminal/terminalList?startTime=2020-01-06%2007:50:44&endTime=2020-03-24%2010:15:24&term_idOrname=&page=1&pageSize=10",
+							"protocol": "http",
+							"host": [
+								"10",
+								"9",
+								"25",
+								"19"
+							],
+							"path": [
+								"api",
+								"statisticsTerminal",
+								"terminalList"
+							],
+							"query": [
+								{
+									"key": "startTime",
+									"value": "2020-01-06%2007:50:44",
+									"description": "开始时间"
+								},
+								{
+									"key": "endTime",
+									"value": "2020-03-24%2010:15:24",
+									"description": "结束时间"
+								},
+								{
+									"key": "term_idOrname",
+									"value": "",
+									"description": "设备id和名称共同查询"
+								},
+								{
+									"key": "page",
+									"value": "1"
+								},
+								{
+									"key": "pageSize",
+									"value": "10"
+								}
+							]
+						},
+						"description": "|键值|数据类型|说明|举例|\r\n|-|-|-|-|\r\n|SeriousException|`String`|严重异常||,\r\n|OfflineStart|`String`|离线||,\r\n|SignBackStart|`String`|签退||,\r\n|successStart|`String`|正常||,\r\n|generalException|`String`|一般异常||,\r\n|term_id|`String`|设备Id||,\r\n|term_name|`String`|设备名称||,\r\n|data|`Array`|集合||"
+					},
+					"response": []
+				},
+				{
+					"name": "告警统计",
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "token",
+								"value": "{{token}}",
+								"type": "text"
+							}
+						],
+						"url": {
+							"raw": "http://10.9.25.19/api/statisticsTerminal/alarmList?startTime=2020-02-06&endTime=2020-03-24&page=1&pageSize=10",
+							"protocol": "http",
+							"host": [
+								"10",
+								"9",
+								"25",
+								"19"
+							],
+							"path": [
+								"api",
+								"statisticsTerminal",
+								"alarmList"
+							],
+							"query": [
+								{
+									"key": "startTime",
+									"value": "2020-02-06",
+									"description": "开始时间"
+								},
+								{
+									"key": "endTime",
+									"value": "2020-03-24",
+									"description": "结束时间"
+								},
+								{
+									"key": "page",
+									"value": "1"
+								},
+								{
+									"key": "pageSize",
+									"value": "10"
+								}
+							]
+						},
+						"description": "|键值|数据类型|说明|举例|\r\n|-|-|-|-|\r\n|data|`Array`|集合||,\r\n|happenTermNum|`String`|发生终端数||,\r\n|removeTermNum|`String`|解除终端数||,\r\n|name|`String`|告警事件||,\r\n|removeNum|`String`|解除次数||,\r\n|happenNum|`String`|发生次数||"
+					},
+					"response": []
+				},
+				{
+					"name": "按天数获取账户信息",
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "token",
+								"value": "{{token}}",
+								"type": "text"
+							}
+						],
+						"url": {
+							"raw": "{{host}}/statistics/statisticsDay?day=2020-01-04 00:00:00",
+							"host": [
+								"{{host}}"
+							],
+							"path": [
+								"statistics",
+								"statisticsDay"
+							],
+							"query": [
+								{
+									"key": "day",
+									"value": "2020-01-04 00:00:00",
+									"description": "选择某一天"
+								}
+							]
+						},
+						"description": "|键值|数据类型|说明|举例|\r\n|-|-|-|-|\r\n|AccountStatusDistribution|`Array`|账户状态分布||,\r\n|typenum|`String`|数量||,\r\n|typename|`String`|类型名称||,\r\n|NumberOfAccountOperations|`Array`|账户操作次数||,\r\n|account|`Object`|账户基本信息||,\r\n|accountNum|`String`|账户总数||,\r\n|operationNum|`String`|操作总数||,\r\n|accountTotal|`String`|账户总额（元||,\r\n|transactionTotal|`String`|交易总额（元）||"
+					},
+					"response": []
+				},
+				{
+					"name": "近三十日业务办理趋势",
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "token",
+								"value": "{{token}}",
+								"type": "text"
+							}
+						],
+						"url": {
+							"raw": "{{host}}/statistics/statisticsBusinessTrend",
+							"host": [
+								"{{host}}"
+							],
+							"path": [
+								"statistics",
+								"statisticsBusinessTrend"
+							]
+						},
+						"description": "|键值|数据类型|说明|举例|\r\n|-|-|-|-|\r\n|name|`String`|类型名称||,\r\n|dataX|`String`|数量（纵坐标）||,\r\n|timeY|`String`|时间（横坐标）||"
+					},
+					"response": []
+				}
+			],
+			"protocolProfileBehavior": {}
+		},
+		{
+			"name": "login_login",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"id": "d3f81032-cc2b-4c4c-8330-d65e9a0d607c",
+						"exec": [
+							"var data = JSON.parse(responseBody);",
+							"if (data.token) {",
+							"  tests[\"Body has token\"] = true;",
+							"  pm.globals.set(\"token\", data.token);",
+							"}",
+							"else {",
+							"  tests[\"Body has token\"] = false;",
+							"}"
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "Content-Type",
+						"name": "Content-Type",
+						"value": "application/json",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\"username\":\"zhangrw\",\"password\":\"123456\"}",
+					"options": {
+						"raw": {}
+					}
+				},
+				"url": {
+					"raw": "{{host}}/login_login",
+					"host": [
+						"{{host}}"
+					],
+					"path": [
+						"login_login"
+					]
+				},
+				"description": "# 登陆\n\n## 参数\n|键值|类型|说明|例子|\n|---|---|---|---|\n|username|string|用户名|admin|\n|password|string|密码|123|\n\n## 返回\n|键值|类型|说明|例子|\n|---|---|---|---|\n|code|string|0:失败,1:成功|0|\n|msg|string|提示文字|成功"
+			},
+			"response": []
+		},
+		{
+			"name": "event/list",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"id": "5bc9cb70-3530-49ef-a7e8-0a24d4fc5621",
+						"exec": [
+							""
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"method": "GET",
+				"header": [
+					{
+						"key": "token",
+						"value": "{{token}}",
+						"type": "text"
+					}
+				],
+				"url": {
+					"raw": "{{host}}/event/list?page=1&pageSize=10",
+					"host": [
+						"{{host}}"
+					],
+					"path": [
+						"event",
+						"list"
+					],
+					"query": [
+						{
+							"key": "page",
+							"value": "1",
+							"description": "页码"
+						},
+						{
+							"key": "pageSize",
+							"value": "10",
+							"description": "每页显示信息条数"
+						}
+					]
+				},
+				"description": "# 事件定义\n\n## 参数\n|键值|数据类型|说明|例子|\n|---|---|---|---|\n|type|number|设备类型|10|\n\n\n## 返回\n|键值|类型|说明|举例|\n|---|---|---|--|\n|code|string|状态码|1|\n|data|array|数据|[{title:'标题',desc:'描述'}]|\n|data[0].title|string|标题|-|\n|data[0].desc|string|描述|-|"
+			},
+			"response": [
+				{
+					"name": "event/list?page=1&pageSize=100",
+					"originalRequest": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "token",
+								"value": "{{token}}",
+								"type": "text"
+							}
+						],
+						"url": {
+							"raw": "{{host}}/event/list?page=1&pageSize=10",
+							"host": [
+								"{{host}}"
+							],
+							"path": [
+								"event",
+								"list"
+							],
+							"query": [
+								{
+									"key": "page",
+									"value": "1"
+								},
+								{
+									"key": "pageSize",
+									"value": "10"
+								}
+							]
+						}
+					},
+					"status": "OK",
+					"code": 200,
+					"_postman_previewlanguage": "json",
+					"header": [
+						{
+							"key": "Vary",
+							"value": "Origin"
+						},
+						{
+							"key": "Vary",
+							"value": "Access-Control-Request-Method"
+						},
+						{
+							"key": "Vary",
+							"value": "Access-Control-Request-Headers"
+						},
+						{
+							"key": "Content-Type",
+							"value": "application/json"
+						},
+						{
+							"key": "Transfer-Encoding",
+							"value": "chunked"
+						},
+						{
+							"key": "Date",
+							"value": "Fri, 10 Jan 2020 01:59:27 GMT"
+						},
+						{
+							"key": "Keep-Alive",
+							"value": "timeout=60"
+						},
+						{
+							"key": "Connection",
+							"value": "keep-alive"
+						}
+					],
+					"cookie": [],
+					"body": "{\n    \"msg\": \"操作成功\",\n    \"code\": \"1\",\n    \"data\": [\n        {\n            \"alarm_name\": \"一般告警\",\n            \"classify\": \"1\",\n            \"event_id\": \"1003\",\n            \"status_id\": \"sc44bebe02eb4c2d7ff26aed93a1\",\n            \"event_level_name\": \"普通\",\n            \"status_name\": \"正常\",\n            \"event_name\": \"CPU负载正常\",\n            \"description\": \"CPU使用率低于50%\",\n            \"event_level\": \"1002\",\n            \"alarm_id\": \"a44bebe02eb4c2d7ff26aed93a1\",\n            \"term_type\": \"1\"\n        },\n        {\n            \"alarm_name\": \"一般告警\",\n            \"classify\": \"1\",\n            \"event_id\": \"1004\",\n            \"status_id\": \"sc44bebe02eb4c2d7ff26aed93a1\",\n            \"event_level_name\": \"普通\",\n            \"status_name\": \"正常\",\n            \"event_name\": \"CPU温度高\",\n            \"description\": \"CPU温度高于65度\",\n            \"event_level\": \"1002\",\n            \"alarm_id\": \"a44bebe02eb4c2d7ff26aed93a1\",\n            \"term_type\": \"1\"\n        },\n        {\n            \"alarm_name\": \"一般告警\",\n            \"classify\": \"1\",\n            \"event_id\": \"1005\",\n            \"status_id\": \"sc44bebe02eb4c2d7ff26aed93a1\",\n            \"event_level_name\": \"紧急\",\n            \"status_name\": \"正常\",\n            \"event_name\": \"CPU温度较高\",\n            \"description\": \"CPU温度高于50度低于65度\",\n            \"event_level\": \"1003\",\n            \"alarm_id\": \"a44bebe02eb4c2d7ff26aed93a1\",\n            \"term_type\": \"1\"\n        },\n        {\n            \"alarm_name\": \"一般告警\",\n            \"classify\": \"1\",\n            \"event_id\": \"1006\",\n            \"status_id\": \"sc44bebe02eb4c2d7ff26aed93a1\",\n            \"event_level_name\": \"普通\",\n            \"status_name\": \"正常\",\n            \"event_name\": \"CPU温度正常\",\n            \"description\": \"CPU温度低于50度\",\n            \"event_level\": \"1002\",\n            \"alarm_id\": \"a44bebe02eb4c2d7ff26aed93a1\",\n            \"term_type\": \"1\"\n        },\n        {\n            \"alarm_name\": \"一般告警\",\n            \"classify\": \"1\",\n            \"event_id\": \"1007\",\n            \"status_id\": \"sc44bebe02eb4c2d7ff26aed93a4\",\n            \"event_level_name\": \"普通\",\n            \"status_name\": \"严重异常\",\n            \"event_name\": \"内存使用率高\",\n            \"description\": \"内存使用率超过90%\",\n            \"event_level\": \"1002\",\n            \"alarm_id\": \"a44bebe02eb4c2d7ff26aed93a1\",\n            \"term_type\": \"1\"\n        },\n        {\n            \"alarm_name\": \"一般告警\",\n            \"classify\": \"1\",\n            \"event_id\": \"1008\",\n            \"status_id\": \"sc44bebe02eb4c2d7ff26aed93a3\",\n            \"event_level_name\": \"紧急\",\n            \"status_name\": \"一般异常\",\n            \"event_name\": \"内存使用率较高\",\n            \"description\": \"内存使用率超过80%低于90%\",\n            \"event_level\": \"1003\",\n            \"alarm_id\": \"a44bebe02eb4c2d7ff26aed93a1\",\n            \"term_type\": \"1\"\n        },\n        {\n            \"alarm_name\": \"一般告警\",\n            \"classify\": \"1\",\n            \"event_id\": \"1009\",\n            \"status_id\": \"sc44bebe02eb4c2d7ff26aed93a1\",\n            \"event_level_name\": \"普通\",\n            \"status_name\": \"正常\",\n            \"event_name\": \"内存使用率正常\",\n            \"description\": \"内存使用率低于80%\",\n            \"event_level\": \"1002\",\n            \"alarm_id\": \"a44bebe02eb4c2d7ff26aed93a1\",\n            \"term_type\": \"1\"\n        },\n        {\n            \"alarm_name\": \"一般告警\",\n            \"classify\": \"1\",\n            \"event_id\": \"1010\",\n            \"status_id\": \"sc44bebe02eb4c2d7ff26aed93a4\",\n            \"event_level_name\": \"紧急\",\n            \"status_name\": \"严重异常\",\n            \"event_name\": \"磁盘空间严重不足\",\n            \"description\": \"磁盘空间使用超过90%\",\n            \"event_level\": \"1003\",\n            \"alarm_id\": \"a44bebe02eb4c2d7ff26aed93a1\",\n            \"term_type\": \"1\"\n        },\n        {\n            \"alarm_name\": \"一般告警\",\n            \"classify\": \"1\",\n            \"event_id\": \"1011\",\n            \"status_id\": \"sc44bebe02eb4c2d7ff26aed93a3\",\n            \"event_level_name\": \"普通\",\n            \"status_name\": \"一般异常\",\n            \"event_name\": \"磁盘空间不足\",\n            \"description\": \"磁盘空间使用超过75%低于90%\",\n            \"event_level\": \"1002\",\n            \"alarm_id\": \"a44bebe02eb4c2d7ff26aed93a1\",\n            \"term_type\": \"1\"\n        },\n        {\n            \"alarm_name\": \"一般告警\",\n            \"classify\": \"1\",\n            \"event_id\": \"1012\",\n            \"status_id\": \"sc44bebe02eb4c2d7ff26aed93a1\",\n            \"event_level_name\": \"普通\",\n            \"status_name\": \"正常\",\n            \"event_name\": \"磁盘空间正常\",\n            \"description\": \"磁盘空间使用低于75%\",\n            \"event_level\": \"1002\",\n            \"alarm_id\": \"a44bebe02eb4c2d7ff26aed93a1\",\n            \"term_type\": \"1\"\n        }\n    ],\n    \"dataCount\": \"13\"\n}"
+				}
+			]
+		},
+		{
+			"name": "prom/showhost",
+			"request": {
+				"method": "GET",
+				"header": [
+					{
+						"key": "token",
+						"value": "{{token}}",
+						"type": "text"
+					}
+				],
+				"url": {
+					"raw": "{{host}}/prom_DB/showTeminal?page=1&pageSize=10",
+					"host": [
+						"{{host}}"
+					],
+					"path": [
+						"prom_DB",
+						"showTeminal"
+					],
+					"query": [
+						{
+							"key": "page",
+							"value": "1"
+						},
+						{
+							"key": "pageSize",
+							"value": "10"
+						}
+					]
+				},
+				"description": "主机视图"
+			},
+			"response": []
+		},
+		{
+			"name": "测试",
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "token",
+						"type": "text",
+						"value": "{{token}}"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n\"parent_type_id\":\"010100\"\t,\n\"type_id\":\"020102\"\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "{{host}}/rule/add",
+					"host": [
+						"{{host}}"
+					],
+					"path": [
+						"rule",
+						"add"
+					]
+				},
+				"description": "## 参数\r\n|键值|类型|说明|例子|\r\n|---|---|---|---|\r\n|page|string|页码|1|\r\n|pageSize|string|每页显示条数|10|\r\n\r\n## 返回\r\n|键值|类型|说明|例子|\r\n|---|---|---|---|\r\n|code|string|0:失败,1:成功|0|\r\n|msg|string|提示文字|成功\r\n|data|array|数据|[{alarm_id:'0bfc511116e7495bb393f902fdea01',alarm_name:'一般警告',alarm_by_mobile:'true',alarm_by_email:'false',alarm_by_wechat:'false',alarm_count:'1',alarm_minterval:'5',alarm_relieving:'0',alarm_type:'短信，微信'memo:''}]|\r\n|data[0]|alarm_id|string|id|\r\n|data[0]|alarm_name|string|名称|\r\n|data[0]|alarm_by_mobile|boolean|是否短信告警：是true，否false|\r\n|data[0]|alarm_by_email|boolean|是否邮箱告警：是true，否false|\r\n|data[0]|alarm_by_wechat|boolean|是否微信告警：是true，否false|\r\n|data[0]|alarm_count|ing|告警数量|\r\n|data[0]|alarm_minterval|int|告警间隔（以分为单位）|\r\n|data[0]|alarm_relieving|int|解除方式：0异常解决自动解除1手动解除2已读告警信息解除|\r\n|data[0]|alarm_type|string|告警方式|\r\n|data[0]|memo|string|备注|"
+			},
+			"response": []
+		},
+		{
+			"name": "测试2",
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "token",
+						"type": "text",
+						"value": "{{token}}"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "{{host}}/test/sendToWechat",
+					"host": [
+						"{{host}}"
+					],
+					"path": [
+						"test",
+						"sendToWechat"
+					]
+				},
+				"description": "## 参数\r\n|键值|类型|说明|例子|\r\n|---|---|---|---|\r\n|page|string|页码|1|\r\n|pageSize|string|每页显示条数|10|\r\n\r\n## 返回\r\n|键值|类型|说明|例子|\r\n|---|---|---|---|\r\n|code|string|0:失败,1:成功|0|\r\n|msg|string|提示文字|成功\r\n|data|array|数据|[{alarm_id:'0bfc511116e7495bb393f902fdea01',alarm_name:'一般警告',alarm_by_mobile:'true',alarm_by_email:'false',alarm_by_wechat:'false',alarm_count:'1',alarm_minterval:'5',alarm_relieving:'0',alarm_type:'短信，微信'memo:''}]|\r\n|data[0]|alarm_id|string|id|\r\n|data[0]|alarm_name|string|名称|\r\n|data[0]|alarm_by_mobile|boolean|是否短信告警：是true，否false|\r\n|data[0]|alarm_by_email|boolean|是否邮箱告警：是true，否false|\r\n|data[0]|alarm_by_wechat|boolean|是否微信告警：是true，否false|\r\n|data[0]|alarm_count|ing|告警数量|\r\n|data[0]|alarm_minterval|int|告警间隔（以分为单位）|\r\n|data[0]|alarm_relieving|int|解除方式：0异常解决自动解除1手动解除2已读告警信息解除|\r\n|data[0]|alarm_type|string|告警方式|\r\n|data[0]|memo|string|备注|"
+			},
+			"response": []
+		},
+		{
+			"name": "测试3",
+			"protocolProfileBehavior": {
+				"disableBodyPruning": true
+			},
+			"request": {
+				"method": "GET",
+				"header": [
+					{
+						"key": "token",
+						"type": "text",
+						"value": "{{token}}"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "{{host}}/rule/findById?rule_id=29be64f2b68b40929dc534eb172fea00",
+					"host": [
+						"{{host}}"
+					],
+					"path": [
+						"rule",
+						"findById"
+					],
+					"query": [
+						{
+							"key": "rule_id",
+							"value": "29be64f2b68b40929dc534eb172fea00"
+						}
+					]
+				},
+				"description": "## 参数\r\n|键值|类型|说明|例子|\r\n|---|---|---|---|\r\n|page|string|页码|1|\r\n|pageSize|string|每页显示条数|10|\r\n\r\n## 返回\r\n|键值|类型|说明|例子|\r\n|---|---|---|---|\r\n|code|string|0:失败,1:成功|0|\r\n|msg|string|提示文字|成功\r\n|data|array|数据|[{alarm_id:'0bfc511116e7495bb393f902fdea01',alarm_name:'一般警告',alarm_by_mobile:'true',alarm_by_email:'false',alarm_by_wechat:'false',alarm_count:'1',alarm_minterval:'5',alarm_relieving:'0',alarm_type:'短信，微信'memo:''}]|\r\n|data[0]|alarm_id|string|id|\r\n|data[0]|alarm_name|string|名称|\r\n|data[0]|alarm_by_mobile|boolean|是否短信告警：是true，否false|\r\n|data[0]|alarm_by_email|boolean|是否邮箱告警：是true，否false|\r\n|data[0]|alarm_by_wechat|boolean|是否微信告警：是true，否false|\r\n|data[0]|alarm_count|ing|告警数量|\r\n|data[0]|alarm_minterval|int|告警间隔（以分为单位）|\r\n|data[0]|alarm_relieving|int|解除方式：0异常解决自动解除1手动解除2已读告警信息解除|\r\n|data[0]|alarm_type|string|告警方式|\r\n|data[0]|memo|string|备注|"
+			},
+			"response": []
+		}
+	],
+	"event": [
+		{
+			"listen": "prerequest",
+			"script": {
+				"id": "3a004dd8-ded9-4126-9a2f-6a0d944b8978",
+				"type": "text/javascript",
+				"exec": [
+					""
+				]
+			}
+		},
+		{
+			"listen": "test",
+			"script": {
+				"id": "2667cba5-3953-4467-8440-aa12ae730c95",
+				"type": "text/javascript",
+				"exec": [
+					""
+				]
+			}
+		}
+	],
+	"variable": [
+		{
+			"id": "086645f0-dd41-4c54-8ade-581280065e61",
+			"key": "host",
+			"value": "http://localhost:8080",
+			"type": "string"
+		},
+		{
+			"id": "655dbbba-42a9-4291-924c-ed7fae6f018c",
+			"key": "hostUrl",
+			"value": "http://10.9.25.19/api/",
+			"type": "string"
+		}
+	],
+	"protocolProfileBehavior": {}
+}
